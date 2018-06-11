@@ -10,6 +10,10 @@ import Foundation
 
 extension String {
     
+    public func trimmed(includingNewlines: Bool = true) -> String {
+        return trimmingCharacters(in: (includingNewlines ? .whitespacesAndNewlines : .whitespaces))
+    }
+    
     public func matches(for regex: String) -> [NSTextCheckingResult] {
         do {
             let regex = try NSRegularExpression(pattern: regex)
