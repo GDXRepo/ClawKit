@@ -8,21 +8,21 @@
 
 import Foundation
 
-class Dispatch {
+public class Dispatch {
     
-    static var main: DispatchQueue {
+    public static var main: DispatchQueue {
         return DispatchQueue.main
     }
-    static var highest: DispatchQueue {
+    public static var highest: DispatchQueue {
         return DispatchQueue.global(qos: .userInteractive)
     }
-    static var high: DispatchQueue {
+    public static var high: DispatchQueue {
         return DispatchQueue.global(qos: .userInitiated)
     }
-    static var medium: DispatchQueue {
+    public static var medium: DispatchQueue {
         return DispatchQueue.global(qos: .utility)
     }
-    static var low: DispatchQueue {
+    public static var low: DispatchQueue {
         return DispatchQueue.global(qos: .background)
     }
     

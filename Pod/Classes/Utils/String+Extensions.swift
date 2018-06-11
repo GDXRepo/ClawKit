@@ -10,7 +10,7 @@ import Foundation
 
 extension String {
     
-    func matches(for regex: String) -> [NSTextCheckingResult] {
+    public func matches(for regex: String) -> [NSTextCheckingResult] {
         do {
             let regex = try NSRegularExpression(pattern: regex)
             let results = regex.matches(in: self, range: NSRange(self.startIndex..., in: self))
@@ -24,41 +24,41 @@ extension String {
         }
     }
     
-    subscript (i: Int) -> Character {
+    public subscript (i: Int) -> Character {
         return self[index(startIndex, offsetBy: i)]
     }
     
-    subscript (bounds: NSRange) -> Substring {
+    public subscript (bounds: NSRange) -> Substring {
         assert(bounds.location != NSNotFound, "Invalid range.")
         let start = index(startIndex, offsetBy: bounds.location)
         let end = index(startIndex, offsetBy: (bounds.location + bounds.length))
         return self[start..<end]
     }
     
-    subscript (bounds: CountableRange<Int>) -> Substring {
+    public subscript (bounds: CountableRange<Int>) -> Substring {
         let start = index(startIndex, offsetBy: bounds.lowerBound)
         let end = index(startIndex, offsetBy: bounds.upperBound)
         return self[start ..< end]
     }
     
-    subscript (bounds: CountableClosedRange<Int>) -> Substring {
+    public subscript (bounds: CountableClosedRange<Int>) -> Substring {
         let start = index(startIndex, offsetBy: bounds.lowerBound)
         let end = index(startIndex, offsetBy: bounds.upperBound)
         return self[start ... end]
     }
     
-    subscript (bounds: CountablePartialRangeFrom<Int>) -> Substring {
+    public subscript (bounds: CountablePartialRangeFrom<Int>) -> Substring {
         let start = index(startIndex, offsetBy: bounds.lowerBound)
         let end = index(endIndex, offsetBy: -1)
         return self[start ... end]
     }
     
-    subscript (bounds: PartialRangeThrough<Int>) -> Substring {
+    public subscript (bounds: PartialRangeThrough<Int>) -> Substring {
         let end = index(startIndex, offsetBy: bounds.upperBound)
         return self[startIndex ... end]
     }
     
-    subscript (bounds: PartialRangeUpTo<Int>) -> Substring {
+    public subscript (bounds: PartialRangeUpTo<Int>) -> Substring {
         let end = index(startIndex, offsetBy: bounds.upperBound)
         return self[startIndex ..< end]
     }
@@ -67,34 +67,34 @@ extension String {
 
 extension Substring {
     
-    subscript (i: Int) -> Character {
+    public subscript (i: Int) -> Character {
         return self[index(startIndex, offsetBy: i)]
     }
     
-    subscript (bounds: CountableRange<Int>) -> Substring {
+    public subscript (bounds: CountableRange<Int>) -> Substring {
         let start = index(startIndex, offsetBy: bounds.lowerBound)
         let end = index(startIndex, offsetBy: bounds.upperBound)
         return self[start ..< end]
     }
     
-    subscript (bounds: CountableClosedRange<Int>) -> Substring {
+    public subscript (bounds: CountableClosedRange<Int>) -> Substring {
         let start = index(startIndex, offsetBy: bounds.lowerBound)
         let end = index(startIndex, offsetBy: bounds.upperBound)
         return self[start ... end]
     }
     
-    subscript (bounds: CountablePartialRangeFrom<Int>) -> Substring {
+    public subscript (bounds: CountablePartialRangeFrom<Int>) -> Substring {
         let start = index(startIndex, offsetBy: bounds.lowerBound)
         let end = index(endIndex, offsetBy: -1)
         return self[start ... end]
     }
     
-    subscript (bounds: PartialRangeThrough<Int>) -> Substring {
+    public subscript (bounds: PartialRangeThrough<Int>) -> Substring {
         let end = index(startIndex, offsetBy: bounds.upperBound)
         return self[startIndex ... end]
     }
     
-    subscript (bounds: PartialRangeUpTo<Int>) -> Substring {
+    public subscript (bounds: PartialRangeUpTo<Int>) -> Substring {
         let end = index(startIndex, offsetBy: bounds.upperBound)
         return self[startIndex ..< end]
     }
