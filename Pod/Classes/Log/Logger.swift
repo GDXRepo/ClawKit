@@ -47,7 +47,10 @@ extension Logger {
         let msg = LoggerMessage(date: Date(), calledBy: callStackInfo, level: level, message: message)
         messages.append(msg)
         if consoleOutput {
-            print(string(from: msg, callStackInfo: callStackInfo))
+            let value = string(from: msg, callStackInfo: callStackInfo)
+            Dispatch.medium.async {
+                print(value)
+            }
         }
     }
     

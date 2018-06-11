@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = "ClawKit"
-  s.version          = "0.0.3"
+  s.version          = "0.0.4"
   s.summary          = "Useful classes for MVVM/MVP/MVC/SOA-based projects."
   s.homepage         = "https://github.com/GDXRepo/ClawKit"
   s.license          = { :type => "MIT", :file => "LICENSE" }
