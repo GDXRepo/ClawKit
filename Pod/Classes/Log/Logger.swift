@@ -32,42 +32,37 @@ public class Logger {
 
 extension Logger {
     
-    public func string(from message: LoggerMessage, callStackInfo: (String, String)?) -> String {
-        if let info = callStackInfo {
-            let classname = info.0
-            let method = info.1
-            return "\(df.string(from: message.date)) \(classname).\(method) [\(id)] \(message.message)"
-        }
-        return "\(df.string(from: message.date)) [\(id)] \(message.message)"
+    public func string(from message: LoggerMessage, function: String) -> String {
+        return "\(df.string(from: message.date)) \(function) [\(id)] \(message.message)"
     }
     
-    public func log(_ message: String, level: LogLevel = .debug, callStackInfo: (String, String)? = nil) {
+    public func log(_ message: String, level: LogLevel = .debug, function: String) {
         guard enabled else { return }
         guard level.rawValue >= self.level.rawValue else { return }
-        let msg = LoggerMessage(date: Date(), calledBy: callStackInfo, level: level, message: message)
+        let msg = LoggerMessage(date: Date(), function: function, level: level, message: message)
         messages.append(msg)
         if consoleOutput {
-            let value = string(from: msg, callStackInfo: callStackInfo)
+            let value = string(from: msg, function: function)
             Dispatch.medium.async {
                 print(value)
             }
         }
     }
     
-    public func debug(_ message: String, callStackInfo: (String, String)? = nil) {
-        log(message, callStackInfo: callStackInfo)
+    public func debug(_ message: String, function: String) {
+        log(message, function: function)
     }
     
-    public func info(_ message: String, callStackInfo: (String, String)? = nil) {
-        log(message, level: .info, callStackInfo: callStackInfo)
+    public func info(_ message: String, function: String) {
+        log(message, level: .info, function: function)
     }
     
-    public func warn(_ message: String, callStackInfo: (String, String)? = nil) {
-        log(message, level: .warning, callStackInfo: callStackInfo)
+    public func warn(_ message: String, function: String) {
+        log(message, level: .warning, function: function)
     }
     
-    public func error(_ message: String, callStackInfo: (String, String)? = nil) {
-        log(message, level: .error, callStackInfo: callStackInfo)
+    public func error(_ message: String, function: String) {
+        log(message, level: .error, function: function)
     }
     
     public func clear() {

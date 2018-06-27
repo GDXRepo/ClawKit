@@ -31,7 +31,7 @@ public class Profiler {
         assert(!id.isEmpty, "Invalid profiler ID.")
         self.id = id
         logger = Logger(id: id, level: .debug, timeZone: TimeZone(secondsFromGMT: 0)!)
-        logger.debug("Profiler started.")
+        logger.debug("Profiler started.", function: #function)
     }
     
     public func point(message: String? = nil) {
@@ -40,9 +40,9 @@ public class Profiler {
             if !msg.hasSuffix(".") {
                 msg.append(".")
             }
-            logger.debug("\(msg) Total time \(string) sec.")
+            logger.debug("\(msg) Total time \(string) sec.", function: #function)
         } else {
-            logger.debug("Profiler point \(string) sec.")
+            logger.debug("Profiler point \(string) sec.", function: #function)
         }
     }
     

@@ -17,14 +17,14 @@ public enum LogLevel: Int {
 
 public class LoggerMessage {
     
+    public let function: String
     public let date: Date
-    public let calledBy: (String, String)?
     public let level: LogLevel
     public let message: String
     
-    public init(date: Date, calledBy: (String, String)?, level: LogLevel, message: String) {
+    public init(date: Date, function: String, level: LogLevel, message: String) {
         self.date = date
-        self.calledBy = calledBy
+        self.function = function
         self.level = level
         self.message = message
     }
