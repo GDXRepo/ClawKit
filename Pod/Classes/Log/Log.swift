@@ -91,9 +91,9 @@ extension Log {
             return false
         }
         i("Initiated flushing to file at path: \(path)", to: loggerId, function: #function)
-        let caller = (#function, #line)
+        let f = #function
         logger.messages.forEach { msg in
-            var text = logger.string(from: msg, function: #function)
+            var text = logger.string(from: msg, function: f)
             if !text.hasSuffix("\n") {
                 text.append("\n")
             }
