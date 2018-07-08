@@ -33,7 +33,7 @@ public class Logger {
 extension Logger {
     
     public func string(from message: LoggerMessage, function: String) -> String {
-        return "\(df.string(from: message.date)) \(function) [\(id)] \(message.message)"
+        return "\(df.string(from: message.date)) [\(id)] \(function) \(message.message)"
     }
     
     public func log(_ message: String, level: LogLevel = .debug, function: String) {
