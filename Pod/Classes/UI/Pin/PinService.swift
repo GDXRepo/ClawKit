@@ -342,7 +342,7 @@ extension String {
     
     func loc() -> String {
         assert(count > 0, "Invalid tag length.")
-        return NSLocalizedString(self, tableName: "ClawKitLocalizable", comment: self)
+        return NSLocalizedString(self, tableName: "ClawKitLocalizable", bundle: Bundle(for: PinService.self), comment: self)
     }
     
 }

@@ -10,7 +10,11 @@ import Foundation
 
 public extension NotificationCenter {
     
-    private static let kLoggerId = "Broadcast"
+    private static let kLoggerId: String = {
+        let id = "NotificationCenter"
+        Log.register(id: id, level: .debug, timeZone: TimeZone(secondsFromGMT: 0)!)
+        return id
+    }()
     
     public class func post(_ name: String) {
         Log.d("broadcasting \(name)", to: kLoggerId, function: #function)

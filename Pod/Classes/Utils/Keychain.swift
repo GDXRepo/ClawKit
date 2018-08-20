@@ -11,7 +11,7 @@ import SAMKeychain
 
 public final class Keychain {
     
-    public static var account: String!
+    public static var account = "ClawKit.Keychain"
     
     private init() {
         // empty
