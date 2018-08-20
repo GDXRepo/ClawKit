@@ -273,6 +273,7 @@ extension PinService {
         case .change:
             guard let s = state else {
                 assert(false, "Invalid state.")
+                return
             }
             switch s {
             case .old:
