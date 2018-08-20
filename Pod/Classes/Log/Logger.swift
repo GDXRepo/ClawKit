@@ -8,7 +8,7 @@
 
 import Foundation
 
-public class Logger {
+open class Logger {
     
     public let id: String
     public let creationDate = Date()
@@ -26,15 +26,15 @@ public class Logger {
         df.timeZone = timeZone
     }
     
+    open func string(from message: LoggerMessage, function: String) -> String {
+        return "\(df.string(from: message.date)) [\(id)] \(function) \(message.message)"
+    }
+    
 }
 
 // MARK: - Logging
 
 extension Logger {
-    
-    public func string(from message: LoggerMessage, function: String) -> String {
-        return "\(df.string(from: message.date)) [\(id)] \(function) \(message.message)"
-    }
     
     public func log(_ message: String, level: LogLevel = .debug, function: String) {
         guard enabled else { return }

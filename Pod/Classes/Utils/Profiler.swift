@@ -8,10 +8,10 @@
 
 import Foundation
 
-public class Profiler {
+open class Profiler {
     
-    public let id: String
-    public var elapsedSec: Double {
+    open let id: String
+    open var elapsedSec: Double {
         let elapsedMTU = Double(mach_absolute_time() - startTime)
         if timebaseInfo.denom == 0 {
             mach_timebase_info(&timebaseInfo)
@@ -19,7 +19,7 @@ public class Profiler {
         let elapsedNsec = elapsedMTU * Double(timebaseInfo.numer) / Double(timebaseInfo.denom)
         return elapsedNsec / 1_000_000_000
     }
-    public var elapsedString: String {
+    open var elapsedString: String {
         let elapsed = elapsedSec
         return String(format: "%.5f", elapsed)
     }
@@ -34,7 +34,7 @@ public class Profiler {
         logger.debug("Profiler started.", function: #function)
     }
     
-    public func point(message: String? = nil) {
+    open func point(message: String? = nil) {
         let string = elapsedString
         if var msg = message?.trimmed() {
             if !msg.hasSuffix(".") {

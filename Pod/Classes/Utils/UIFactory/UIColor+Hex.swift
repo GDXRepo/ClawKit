@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-extension UIColor {
+public extension UIColor {
     
     public convenience init(r: Int, g: Int, b: Int, a: CGFloat = 1.0) {
         assert(r >= 0 && r <= 255, "Invalid red component")

@@ -8,7 +8,11 @@
 
 import Foundation
 
-extension String {
+public extension String {
+    
+    public func localized() -> String {
+        return NSLocalizedString(self, comment: self)
+    }
     
     public func trimmed(includingNewlines: Bool = true) -> String {
         return trimmingCharacters(in: (includingNewlines ? .whitespacesAndNewlines : .whitespaces))

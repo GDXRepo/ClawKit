@@ -15,7 +15,7 @@ public enum LogLevel: Int {
     case error
 }
 
-public class LoggerMessage {
+open class LoggerMessage {
     
     public let function: String
     public let date: Date
