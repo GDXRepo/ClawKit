@@ -28,6 +28,7 @@ open class CKViewController: UIViewController {
         contentView = UIFactory.view(color: .clear, superview: scrollView)
         contentView.addGestureRecognizer(tapRecognizer) // hide keyboard on tapping the content view
         // setup UI
+        setup()
         bind()
         localize()
     }
@@ -58,6 +59,11 @@ open class CKViewController: UIViewController {
     
     @objc open var hidesNavigationBar: Bool {
         return false
+    }
+    
+    /// Creates the UI elements.
+    @objc open func setup() {
+        // empty
     }
     
     /// Binds UI actions.
