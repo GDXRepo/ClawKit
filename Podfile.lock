@@ -1,0 +1,20 @@
+PODS:
+  - SAMKeychain (1.5.3)
+  - SnapKit (4.0.0)
+
+DEPENDENCIES:
+  - SAMKeychain
+  - SnapKit
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - SAMKeychain
+    - SnapKit
+
+SPEC CHECKSUMS:
+  SAMKeychain: 483e1c9f32984d50ca961e26818a534283b4cd5c
+  SnapKit: a42d492c16e80209130a3379f73596c3454b7694
+
+PODFILE CHECKSUM: 0c893c3e6ef9d893bbfcf103fa0baabbd688baea
+
+COCOAPODS: 1.5.3
