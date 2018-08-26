@@ -21,24 +21,24 @@ open class UIFactory {
 
 public extension UIFactory {
     
-    public class func button(superview: UIView?) -> Button {
-        let button = Button(frame: .zero)
+    public class func button(superview: UIView?) -> CKButton {
+        let button = CKButton(frame: .zero)
         button.titleLabel?.font = FontManager.font(size: 16)
         button.setTitleColor(.black, for: .normal)
-        return button.added(to: superview) as! Button
+        return button.added(to: superview) as! CKButton
     }
     
-    public class func button(imageNamed name: String, superview: UIView?) -> Button {
-        let button = Button(frame: .zero)
+    public class func button(imageNamed name: String, superview: UIView?) -> CKButton {
+        let button = CKButton(frame: .zero)
         button.setImage(UIImage(named: name), for: .normal)
-        return button.added(to: superview) as! Button
+        return button.added(to: superview) as! CKButton
     }
     
-    public class func button(font: UIFont, titleColor: UIColor, superview: UIView?) -> Button {
-        let button = Button(frame: .zero)
+    public class func button(font: UIFont, titleColor: UIColor, superview: UIView?) -> CKButton {
+        let button = CKButton(frame: .zero)
         button.titleLabel?.font = font
         button.setTitleColor(titleColor, for: .normal)
-        return button.added(to: superview) as! Button
+        return button.added(to: superview) as! CKButton
     }
     
 }
