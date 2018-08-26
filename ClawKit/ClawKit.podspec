@@ -12,8 +12,8 @@ Pod::Spec.new do |s|
   s.swift_version = '4.1'
   s.requires_arc  = true
 
-  s.resources = ['Pod/Assets/*.xcassets', 'Pod/Assets/*.strings']
-  s.source_files = 'Pod/Classes/**/*'
+  s.resources = ['./Pod/Assets/*.xcassets', './Pod/Assets/*.strings']
+  s.source_files = './Pod/Classes/**/*'
 
   s.dependency 'SnapKit'
   s.dependency 'SAMKeychain'
