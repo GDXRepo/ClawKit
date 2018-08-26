@@ -9,16 +9,16 @@
 import Foundation
 import UIKit
 
-class CKControl: UIControl, UIConfigurable {
+open class CKControl: UIControl, UIConfigurable {
     
-    override init(frame: CGRect) {
+    public override init(frame: CGRect) {
         super.init(frame: frame)
         setup()
         bind()
         localize()
     }
     
-    required init?(coder aDecoder: NSCoder) {
+    public required init?(coder aDecoder: NSCoder) {
         assert(false)
         return nil
     }
