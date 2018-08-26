@@ -9,13 +9,13 @@
 import Foundation
 import UIKit
 
-open class CKViewController: UIViewController {
+open class CKViewController: UIViewController, UIConfigurable {
     
     public private(set) var contentView: UIView!
     private var scrollView: UIScrollView!
     private lazy var tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(hideKeyboard))
     
-    /// Must be called in `viewWillAppear:` method. WARNING! Do not push a controller with navigation bar on a controller without it. It will cause layout issues with disappearing controller.
+    /// Should be called in `viewWillAppear:` method. WARNING! Do not push a controller with navigation bar and transparent background on a controller without navigation bar. It will cause layout issues with disappearing controller.
     public var hidesNavigationBar: Bool = false {
         didSet {
             if navigationController?.isNavigationBarHidden != hidesNavigationBar {
@@ -28,7 +28,11 @@ open class CKViewController: UIViewController {
     
     open override func viewDidLoad() {
         super.viewDidLoad()
-        
+        // add gradient if necessary
+        if let gradient = gradientBackground() {
+            gradient.add(to: view)
+        }
+        // add content
         scrollView = UIScrollView(frame: .zero)
         scrollView.contentSize = .zero
         scrollView.keyboardDismissMode = .none
@@ -47,6 +51,7 @@ open class CKViewController: UIViewController {
     open override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         scrollView.isScrollEnabled = allowsScrolling
+        hidesNavigationBar = false
     }
     
     open override func viewWillDisappear(_ animated: Bool) {
@@ -70,21 +75,6 @@ open class CKViewController: UIViewController {
         return true
     }
     
-    /// Creates the UI elements.
-    @objc open func setup() {
-        // empty
-    }
-    
-    /// Binds UI actions.
-    @objc open func bind() {
-        // empty
-    }
-    
-    /// Localizes subviews.
-    @objc open func localize() {
-        // empty
-    }
-    
     /// Reloads data using its current state.
     @objc open func reloadData() {
         // empty
@@ -95,9 +85,27 @@ open class CKViewController: UIViewController {
         // empty
     }
     
+    open func gradientBackground() -> Gradient? {
+        return nil
+    }
+    
+    // MARK: - UIConfigurable
+    
+    open func setup() {
+        // empty
+    }
+    
+    open func bind() {
+        // empty
+    }
+    
+    open func localize() {
+        // empty
+    }
+    
 }
 
-public extension CKViewController {
+extension CKViewController {
     
     @objc public func hideKeyboard() {
         view.endEditing(true)

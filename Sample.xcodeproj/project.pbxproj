@@ -33,10 +33,12 @@
 		4C1B44062132CD7B00FC3C02 /* .gitkeep in Resources */ = {isa = PBXBuildFile; fileRef = 4C1B43E82132CD7B00FC3C02 /* .gitkeep */; };
 		4C1B44072132CD7B00FC3C02 /* ClawKitLocalizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4C1B43E92132CD7B00FC3C02 /* ClawKitLocalizable.strings */; };
 		4C1B44082132CD7B00FC3C02 /* ClawKitAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4C1B43EA2132CD7B00FC3C02 /* ClawKitAssets.xcassets */; };
-		4C1B44092132CD7B00FC3C02 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 4C1B43EB2132CD7B00FC3C02 /* LICENSE */; };
-		4C1B440A2132CD7B00FC3C02 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 4C1B43EC2132CD7B00FC3C02 /* README.md */; };
 		4C1B440B2132CD7B00FC3C02 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 4C1B43ED2132CD7B00FC3C02 /* .gitignore */; };
 		4C1B440C2132CD7B00FC3C02 /* ClawKit.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 4C1B43EE2132CD7B00FC3C02 /* ClawKit.podspec */; };
+		4CA6ACD421331E7C00799379 /* Control.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CA6ACD321331E7C00799379 /* Control.swift */; };
+		4CA6ACD621331E8700799379 /* Gradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CA6ACD521331E8700799379 /* Gradient.swift */; };
+		4CA6ACD821331F0500799379 /* UIConfigurable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CA6ACD721331F0500799379 /* UIConfigurable.swift */; };
+		4CA6ACDC2133201600799379 /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CA6ACDB2133201600799379 /* View.swift */; };
 		4CD6EDBB212AEF5D00D4B1B7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CD6EDBA212AEF5D00D4B1B7 /* AppDelegate.swift */; };
 		4CD6EDBD212AEF5D00D4B1B7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CD6EDBC212AEF5D00D4B1B7 /* ViewController.swift */; };
 		4CD6EDC2212AEF5E00D4B1B7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4CD6EDC1212AEF5E00D4B1B7 /* Assets.xcassets */; };
@@ -74,10 +76,12 @@
 		4C1B43E82132CD7B00FC3C02 /* .gitkeep */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
 		4C1B43E92132CD7B00FC3C02 /* ClawKitLocalizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = ClawKitLocalizable.strings; sourceTree = "<group>"; };
 		4C1B43EA2132CD7B00FC3C02 /* ClawKitAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = ClawKitAssets.xcassets; sourceTree = "<group>"; };
-		4C1B43EB2132CD7B00FC3C02 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
-		4C1B43EC2132CD7B00FC3C02 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		4C1B43ED2132CD7B00FC3C02 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		4C1B43EE2132CD7B00FC3C02 /* ClawKit.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ClawKit.podspec; sourceTree = "<group>"; };
+		4CA6ACD321331E7C00799379 /* Control.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Control.swift; sourceTree = "<group>"; };
+		4CA6ACD521331E8700799379 /* Gradient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Gradient.swift; sourceTree = "<group>"; };
+		4CA6ACD721331F0500799379 /* UIConfigurable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIConfigurable.swift; sourceTree = "<group>"; };
+		4CA6ACDB2133201600799379 /* View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
 		4CD6EDB7212AEF5D00D4B1B7 /* Sample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4CD6EDBA212AEF5D00D4B1B7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4CD6EDBC212AEF5D00D4B1B7 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -107,8 +111,6 @@
 				4C1B43C82132CD7B00FC3C02 /* Pod */,
 				4C1B43ED2132CD7B00FC3C02 /* .gitignore */,
 				4C1B43EE2132CD7B00FC3C02 /* ClawKit.podspec */,
-				4C1B43EB2132CD7B00FC3C02 /* LICENSE */,
-				4C1B43EC2132CD7B00FC3C02 /* README.md */,
 			);
 			path = ClawKit;
 			sourceTree = "<group>";
@@ -138,9 +140,10 @@
 				4C1B43CD2132CD7B00FC3C02 /* Pin */,
 				4C1B43D62132CD7B00FC3C02 /* Button.swift */,
 				4C1B43D42132CD7B00FC3C02 /* CKViewController.swift */,
-				4C1B43CC2132CD7B00FC3C02 /* FontManager.swift */,
+				4CA6ACD321331E7C00799379 /* Control.swift */,
 				4C1B43D52132CD7B00FC3C02 /* HUDViewController.swift */,
 				4C1B43CB2132CD7B00FC3C02 /* UIFactory.swift */,
+				4CA6ACDB2133201600799379 /* View.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -170,9 +173,12 @@
 			children = (
 				4C1B43D92132CD7B00FC3C02 /* Extensions */,
 				4C1B43E22132CD7B00FC3C02 /* Dispatch.swift */,
+				4C1B43CC2132CD7B00FC3C02 /* FontManager.swift */,
+				4CA6ACD521331E8700799379 /* Gradient.swift */,
 				4C1B43E02132CD7B00FC3C02 /* Keychain.swift */,
 				4C1B43E12132CD7B00FC3C02 /* Profiler.swift */,
 				4C1B43D82132CD7B00FC3C02 /* TagsCollectionFlowLayout.swift */,
+				4CA6ACD721331F0500799379 /* UIConfigurable.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -322,10 +328,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				4C1B440B2132CD7B00FC3C02 /* .gitignore in Resources */,
-				4C1B44092132CD7B00FC3C02 /* LICENSE in Resources */,
 				4C1B44062132CD7B00FC3C02 /* .gitkeep in Resources */,
 				4CD6EDC5212AEF5E00D4B1B7 /* LaunchScreen.storyboard in Resources */,
-				4C1B440A2132CD7B00FC3C02 /* README.md in Resources */,
 				4C1B44082132CD7B00FC3C02 /* ClawKitAssets.xcassets in Resources */,
 				4CD6EDC2212AEF5E00D4B1B7 /* Assets.xcassets in Resources */,
 				4C1B44072132CD7B00FC3C02 /* ClawKitLocalizable.strings in Resources */,
@@ -382,6 +386,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				4C1B43F42132CD7B00FC3C02 /* PinViewController.swift in Sources */,
+				4CA6ACD421331E7C00799379 /* Control.swift in Sources */,
+				4CA6ACDC2133201600799379 /* View.swift in Sources */,
 				4C1B44032132CD7B00FC3C02 /* Log.swift in Sources */,
 				4C1B43F52132CD7B00FC3C02 /* PinAppearance.swift in Sources */,
 				4CD6EDBD212AEF5D00D4B1B7 /* ViewController.swift in Sources */,
@@ -394,6 +400,7 @@
 				4C1B44052132CD7B00FC3C02 /* LoggerMessage.swift in Sources */,
 				4C1B43FC2132CD7B00FC3C02 /* UILabel+Empty.swift in Sources */,
 				4C1B43F92132CD7B00FC3C02 /* TagsCollectionFlowLayout.swift in Sources */,
+				4CA6ACD821331F0500799379 /* UIConfigurable.swift in Sources */,
 				4C1B44012132CD7B00FC3C02 /* Profiler.swift in Sources */,
 				4C1B44002132CD7B00FC3C02 /* Keychain.swift in Sources */,
 				4C1B43F12132CD7B00FC3C02 /* PinService.swift in Sources */,
@@ -406,6 +413,7 @@
 				4C1B43EF2132CD7B00FC3C02 /* UIFactory.swift in Sources */,
 				4C1B43FF2132CD7B00FC3C02 /* UIView+Layout.swift in Sources */,
 				4C1B43F32132CD7B00FC3C02 /* PinButtonControl.swift in Sources */,
+				4CA6ACD621331E8700799379 /* Gradient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
