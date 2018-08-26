@@ -1,0 +1,23 @@
+/* 
+  ClawKitLocalizable.strings
+  ClawKit
+
+  Created by Georgiy Malyukov on 17.08.2018.
+  Copyright © 2018 Georgiy Malyukov. All rights reserved.
+*/
+
+"ClawKit.utils.ok" = "OK";
+"ClawKit.utils.cancel" = "Cancel";
+
+"ClawKit.pin.header.change" = "Pin change";
+
+"ClawKit.pin.prompt" = "Enter passcode";
+"ClawKit.pin.biometrics" = "Use your Touch ID or Face ID to unlock";
+
+"ClawKit.pin.change.hint.old" = "Enter current passcode";
+"ClawKit.pin.change.hint.new" = "Specify new passcode";
+"ClawKit.pin.change.hint.confirm" = "Confirm new passcode";
+"ClawKit.pin.change.hint.confirm.error" = "Passcodes don't match. Enter new passcode";
+
+"ClawKit.pin.logout.title" = "Logout";
+"ClawKit.pin.logout.message" = "Are you sure?";
