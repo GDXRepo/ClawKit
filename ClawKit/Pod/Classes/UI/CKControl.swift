@@ -1,15 +1,15 @@
 //
-//  View.swift
+//  CKControl.swift
 //  ClawKit
 //
-//  Created by Georgiy Malyukov on 26.08.2018.
+//  Created by Georgiy Malyukov on 09.06.2018.
 //  Copyright © 2018 Georgiy Malyukov. All rights reserved.
 //
 
 import Foundation
 import UIKit
 
-class View: UIView, UIConfigurable {
+class CKControl: UIControl, UIConfigurable {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
