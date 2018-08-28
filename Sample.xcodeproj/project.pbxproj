@@ -30,7 +30,6 @@
 		4C1B44032132CD7B00FC3C02 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1B43E42132CD7B00FC3C02 /* Log.swift */; };
 		4C1B44042132CD7B00FC3C02 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1B43E52132CD7B00FC3C02 /* Logger.swift */; };
 		4C1B44052132CD7B00FC3C02 /* LoggerMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1B43E62132CD7B00FC3C02 /* LoggerMessage.swift */; };
-		4C1B44062132CD7B00FC3C02 /* .gitkeep in Resources */ = {isa = PBXBuildFile; fileRef = 4C1B43E82132CD7B00FC3C02 /* .gitkeep */; };
 		4C1B44072132CD7B00FC3C02 /* ClawKitLocalizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4C1B43E92132CD7B00FC3C02 /* ClawKitLocalizable.strings */; };
 		4C1B44082132CD7B00FC3C02 /* ClawKitAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4C1B43EA2132CD7B00FC3C02 /* ClawKitAssets.xcassets */; };
 		4C1B440B2132CD7B00FC3C02 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 4C1B43ED2132CD7B00FC3C02 /* .gitignore */; };
@@ -73,7 +72,6 @@
 		4C1B43E42132CD7B00FC3C02 /* Log.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
 		4C1B43E52132CD7B00FC3C02 /* Logger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		4C1B43E62132CD7B00FC3C02 /* LoggerMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoggerMessage.swift; sourceTree = "<group>"; };
-		4C1B43E82132CD7B00FC3C02 /* .gitkeep */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
 		4C1B43E92132CD7B00FC3C02 /* ClawKitLocalizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = ClawKitLocalizable.strings; sourceTree = "<group>"; };
 		4C1B43EA2132CD7B00FC3C02 /* ClawKitAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = ClawKitAssets.xcassets; sourceTree = "<group>"; };
 		4C1B43ED2132CD7B00FC3C02 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
@@ -209,7 +207,6 @@
 		4C1B43E72132CD7B00FC3C02 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
-				4C1B43E82132CD7B00FC3C02 /* .gitkeep */,
 				4C1B43EA2132CD7B00FC3C02 /* ClawKitAssets.xcassets */,
 				4C1B43E92132CD7B00FC3C02 /* ClawKitLocalizable.strings */,
 			);
@@ -328,7 +325,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				4C1B440B2132CD7B00FC3C02 /* .gitignore in Resources */,
-				4C1B44062132CD7B00FC3C02 /* .gitkeep in Resources */,
 				4CD6EDC5212AEF5E00D4B1B7 /* LaunchScreen.storyboard in Resources */,
 				4C1B44082132CD7B00FC3C02 /* ClawKitAssets.xcassets in Resources */,
 				4CD6EDC2212AEF5E00D4B1B7 /* Assets.xcassets in Resources */,

@@ -47,23 +47,24 @@ public extension UIFactory {
     
 public extension UIFactory {
     
-    public class func label(
-        font: UIFont = FontManager.font(size: 15, weight: .light),
-        textColor: UIColor = .black,
-        wordWrap: Bool = true,
-        superview: UIView?
-    ) -> UILabel {
+    public class func label(font: UIFont = FontManager.font(size: 15, weight: .light), textColor: UIColor = .black, textAlignment: NSTextAlignment = .center, wordWrap: Bool = true, superview: UIView?) -> UILabel {
         let label = UILabel(frame: .zero)
         label.font = font
         label.textColor = textColor
         label.numberOfLines = wordWrap ? 0 : 1
         label.lineBreakMode = wordWrap ? .byWordWrapping : .byTruncatingTail
-        label.textAlignment = .center
+        label.textAlignment = textAlignment
         return label.added(to: superview) as! UILabel
     }
     
-    public class func imageView(with imageNamed: String?, contentMode: UIViewContentMode = .scaleAspectFit, superview: UIView?) -> UIImageView {
-        let imageView = UIImageView(image: UIImage(named: imageNamed ?? ""))
+    public class func imageView(with imageNamed: String? = nil, contentMode: UIViewContentMode = .scaleAspectFit, superview: UIView?) -> UIImageView {
+        let imageView = UIImageView(image: (imageNamed != nil) ? UIImage(named: imageNamed!) : nil)
+        imageView.contentMode = contentMode
+        return imageView.added(to: superview) as! UIImageView
+    }
+    
+    public class func imageView(with image: UIImage?, contentMode: UIViewContentMode = .scaleAspectFit, superview: UIView?) -> UIImageView {
+        let imageView = UIImageView(image: image)
         imageView.contentMode = contentMode
         return imageView.added(to: superview) as! UIImageView
     }
@@ -72,8 +73,19 @@ public extension UIFactory {
         let view = UIView(frame: .zero)
         view.backgroundColor = color
         view.alpha = alpha
+        view.clipsToBounds = (cornerRadius != 0)
         view.layer.cornerRadius = CGFloat(cornerRadius)
         return view.added(to: superview)
+    }
+    
+    public class func stackView(distribution: UIStackViewDistribution = .fillEqually, axis: UILayoutConstraintAxis = .horizontal, cornerRadius: UInt = 0, superview: UIView?) -> UIStackView {
+        let view = UIStackView(frame: .zero)
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.layer.cornerRadius = CGFloat(cornerRadius)
+        view.clipsToBounds = (cornerRadius != 0)
+        view.distribution = distribution
+        view.axis = axis
+        return view.added(to: superview) as! UIStackView
     }
     
 }

@@ -11,8 +11,11 @@ import UIKit
 
 open class CKView: UIView, UIConfigurable {
     
+    open var reloadsWhenMoved: Bool = true
+    
     public override init(frame: CGRect) {
         super.init(frame: frame)
+        translatesAutoresizingMaskIntoConstraints = false
         setup()
         bind()
         localize()
@@ -21,6 +24,14 @@ open class CKView: UIView, UIConfigurable {
     public required init?(coder aDecoder: NSCoder) {
         assert(false)
         return nil
+    }
+    
+    open override func didMoveToSuperview() {
+        updateConstraintsIfNeeded()
+        super.didMoveToSuperview()
+        if reloadsWhenMoved {
+            reloadData()
+        }
     }
     
     /// Reloads data using its current state.
