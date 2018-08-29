@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-open class CKControl: UIControl, UIConfigurable {
+open class CKControl: UIControl, UIReloadable {
     
     open var reloadsWhenMoved: Bool = true
     
@@ -34,12 +34,7 @@ open class CKControl: UIControl, UIConfigurable {
         }
     }
     
-    /// Reloads data using its current state.
-    @objc open func reloadData() {
-        // empty
-    }
-    
-    // MARK: - UIConfigurable
+    // MARK: - UIReloadable
     
     open func setup() {
         // empty
@@ -50,6 +45,10 @@ open class CKControl: UIControl, UIConfigurable {
     }
     
     open func localize() {
+        // empty
+    }
+    
+    open func reloadData() {
         // empty
     }
     

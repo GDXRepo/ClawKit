@@ -1,9 +1,9 @@
 //
 //  UIConfigurable.swift
-//  Sample
+//  ClawKit
 //
-//  Created by Георгий Малюков on 26.08.2018.
-//  Copyright © 2018 GDXRepo. All rights reserved.
+//  Created by Georgiy Malyukov on 26.08.2018.
+//  Copyright © 2018 Georgiy Malyukov. All rights reserved.
 //
 
 import Foundation

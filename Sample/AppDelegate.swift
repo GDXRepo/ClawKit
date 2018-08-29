@@ -1,6 +1,6 @@
 //
 //  AppDelegate.swift
-//  Sample
+//  ClawKit
 //
 //  Created by Georgiy Malyukov on 20.08.2018.
 //  Copyright © 2018 Georgiy Malyukov. All rights reserved.

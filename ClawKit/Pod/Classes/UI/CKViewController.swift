@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-open class CKViewController: UIViewController, UIConfigurable {
+open class CKViewController: UIViewController, UIReloadable {
     
     public private(set) var contentView: UIView!
     private var scrollView: UIScrollView!
@@ -75,11 +75,6 @@ open class CKViewController: UIViewController, UIConfigurable {
         return true
     }
     
-    /// Reloads data using its current state.
-    @objc open func reloadData() {
-        // empty
-    }
-    
     /// Stores controller's current state.
     @objc open func saveState() {
         // empty
@@ -89,7 +84,7 @@ open class CKViewController: UIViewController, UIConfigurable {
         return nil
     }
     
-    // MARK: - UIConfigurable
+    // MARK: - UIReloadable
     
     open func setup() {
         // empty
@@ -100,6 +95,10 @@ open class CKViewController: UIViewController, UIConfigurable {
     }
     
     open func localize() {
+        // empty
+    }
+    
+    open func reloadData() {
         // empty
     }
     
