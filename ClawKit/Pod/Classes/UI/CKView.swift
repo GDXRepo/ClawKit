@@ -49,7 +49,7 @@ open class CKView: UIView, UIReloadable {
     }
     
     open func reloadData() {
-        // empty
+        setNeedsUpdateConstraints()
     }
     
 }
