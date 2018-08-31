@@ -1,5 +1,5 @@
 //
-//  NotificationCenter+Extension.swift
+//  NotificationCenter+Ext.swift
 //  ClawKit
 //
 //  Created by Georgiy Malyukov on 11.06.2018.

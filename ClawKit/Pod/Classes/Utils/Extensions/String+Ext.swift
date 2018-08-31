@@ -1,5 +1,5 @@
 //
-//  String+Extensions.swift
+//  String+Ext.swift
 //  ClawKit
 //
 //  Created by Georgiy Malyukov on 09.06.2018.

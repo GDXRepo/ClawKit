@@ -1,5 +1,5 @@
 //
-//  Date+Extension.swift
+//  Date+Ext.swift
 //  ClawKit
 //
 //  Created by Georgiy Malyukov on 14.06.2018.
