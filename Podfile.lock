@@ -1,20 +1,26 @@
 PODS:
+  - MarqueeLabel (3.1.6):
+    - MarqueeLabel/ObjC (= 3.1.6)
+  - MarqueeLabel/ObjC (3.1.6)
   - SAMKeychain (1.5.3)
   - SnapKit (4.0.0)
 
 DEPENDENCIES:
+  - MarqueeLabel
   - SAMKeychain
   - SnapKit
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
+    - MarqueeLabel
     - SAMKeychain
     - SnapKit
 
 SPEC CHECKSUMS:
+  MarqueeLabel: 0c41f08ef5773e29c0f71064a8fa788a2fd8b365
   SAMKeychain: 483e1c9f32984d50ca961e26818a534283b4cd5c
   SnapKit: a42d492c16e80209130a3379f73596c3454b7694
 
-PODFILE CHECKSUM: 0c893c3e6ef9d893bbfcf103fa0baabbd688baea
+PODFILE CHECKSUM: 7ff4d423c2b753179b146ace347f69865bf410b7
 
 COCOAPODS: 1.5.3

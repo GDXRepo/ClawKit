@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import MarqueeLabel
 
 open class UIFactory {
     
@@ -47,13 +48,27 @@ public extension UIFactory {
     
 public extension UIFactory {
     
-    public class func label(font: UIFont = FontManager.font(size: 15, weight: .light), textColor: UIColor = .black, textAlignment: NSTextAlignment = .center, wordWrap: Bool = true, superview: UIView?) -> UILabel {
-        let label = UILabel(frame: .zero)
-        label.font = font
-        label.textColor = textColor
-        label.numberOfLines = wordWrap ? 0 : 1
-        label.lineBreakMode = wordWrap ? .byWordWrapping : .byTruncatingTail
-        label.textAlignment = textAlignment
+    public enum LabelWordWrap {
+        case none
+        case full
+        case marquee
+    }
+    
+    public class func label(font: UIFont = FontManager.font(size: 15, weight: .light), textColor: UIColor = .black, textAlignment: NSTextAlignment = .center, wordWrap: LabelWordWrap = .full, superview: UIView?) -> UILabel {
+        var label: UILabel!
+        if wordWrap == .marquee {
+            label = MarqueeLabel(frame: .zero, duration: 7, andFadeLength: 2)!
+            label.font = font
+            label.textColor = textColor
+            label.textAlignment = textAlignment
+        } else {
+            label = UILabel(frame: .zero)
+            label.font = font
+            label.textColor = textColor
+            label.numberOfLines = (wordWrap == .full) ? 0 : 1
+            label.lineBreakMode = (wordWrap == .full) ? .byWordWrapping : .byTruncatingTail
+            label.textAlignment = textAlignment
+        }
         return label.added(to: superview) as! UILabel
     }
     

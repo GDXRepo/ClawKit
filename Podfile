@@ -6,3 +6,4 @@ target 'Sample'
 
 pod 'SAMKeychain'
 pod 'SnapKit'
+pod 'MarqueeLabel'
