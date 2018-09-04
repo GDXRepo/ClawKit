@@ -10,8 +10,11 @@ import Foundation
 
 public protocol UIConfigurable: class {
     
-    /// Sets up the UI elements.
-    func setup()
+    /// Performs initial view's state setup.
+    func preload()
+    
+    /// Creates the UI elements.
+    func make()
     
     /// Binds UI actions.
     func bind()

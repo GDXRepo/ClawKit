@@ -23,20 +23,20 @@ open class UIFactory {
 public extension UIFactory {
     
     public class func button(superview: UIView?) -> CKButton {
-        let button = CKButton(frame: .zero)
+        let button = CKButton()
         button.titleLabel?.font = FontManager.font(size: 16)
         button.setTitleColor(.black, for: .normal)
         return button.added(to: superview) as! CKButton
     }
     
     public class func button(imageNamed name: String, superview: UIView?) -> CKButton {
-        let button = CKButton(frame: .zero)
+        let button = CKButton()
         button.setImage(UIImage(named: name), for: .normal)
         return button.added(to: superview) as! CKButton
     }
     
     public class func button(font: UIFont, titleColor: UIColor, superview: UIView?) -> CKButton {
-        let button = CKButton(frame: .zero)
+        let button = CKButton()
         button.titleLabel?.font = font
         button.setTitleColor(titleColor, for: .normal)
         return button.added(to: superview) as! CKButton
@@ -57,7 +57,8 @@ public extension UIFactory {
     public class func label(font: UIFont = FontManager.font(size: 15, weight: .light), textColor: UIColor = .black, textAlignment: NSTextAlignment = .center, wordWrap: LabelWordWrap = .full, superview: UIView?) -> UILabel {
         var label: UILabel!
         if wordWrap == .marquee {
-            label = MarqueeLabel(frame: .zero, duration: 7, andFadeLength: 2)!
+            label = MarqueeLabel(frame: .zero, duration: 3, andFadeLength: 0)!
+            (label as! MarqueeLabel).marqueeType = .MLLeftRight
             label.font = font
             label.textColor = textColor
             label.textAlignment = textAlignment

@@ -10,7 +10,7 @@ import Foundation
 
 public protocol UIReloadable: UIConfigurable {
     
-    /// Reloads data using current state.
+    /// Reloads data using current view's state.
     func reloadData()
     
 }

@@ -43,7 +43,8 @@ open class CKViewController: UIViewController, UIReloadable {
         contentView = UIFactory.view(color: .clear, superview: scrollView)
         contentView.addGestureRecognizer(tapRecognizer) // hide keyboard on tapping the content view
         // setup UI
-        setup()
+        preload()
+        make()
         bind()
         localize()
     }
@@ -86,7 +87,11 @@ open class CKViewController: UIViewController, UIReloadable {
     
     // MARK: - UIReloadable
     
-    open func setup() {
+    open func preload() {
+        // empty
+    }
+    
+    open func make() {
         // empty
     }
     

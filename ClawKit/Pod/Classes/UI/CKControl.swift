@@ -13,10 +13,15 @@ open class CKControl: UIControl, UIReloadable {
     
     open var reloadsWhenMoved: Bool = true
     
+    public convenience init() {
+        self.init(frame: .zero)
+    }
+    
     public override init(frame: CGRect) {
         super.init(frame: frame)
         translatesAutoresizingMaskIntoConstraints = false
-        setup()
+        preload()
+        make()
         bind()
         localize()
     }
@@ -36,7 +41,11 @@ open class CKControl: UIControl, UIReloadable {
     
     // MARK: - UIReloadable
     
-    open func setup() {
+    open func preload() {
+        // empty
+    }
+    
+    open func make() {
         // empty
     }
     
