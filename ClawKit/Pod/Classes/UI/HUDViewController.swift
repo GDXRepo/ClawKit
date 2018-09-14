@@ -9,6 +9,8 @@
 import Foundation
 import UIKit
 
+public typealias HUD = HUDViewController
+
 public final class HUDViewController: CKViewController {
     
     public var data: (title: String?, subtitle: String?) {
@@ -43,13 +45,14 @@ public final class HUDViewController: CKViewController {
         imageView = UIFactory.imageView(with: "loading", contentMode: .center, superview: borderView)
         
         titleLabel = UIFactory.label(
-            font: FontManager.font(size: 16, weight: .medium),
+            font: UIFont.systemFont(ofSize: 17, weight: .medium),
             textColor: .white,
             superview: borderView
         )
         titleLabel.text = data.title
         
         subtitleLabel = UIFactory.label(
+            font: UIFont.systemFont(ofSize: 15, weight: .light),
             textColor: titleLabel.textColor,
             superview: titleLabel.superview
         )
@@ -83,7 +86,7 @@ public final class HUDViewController: CKViewController {
             }
         }
         subtitleLabel.snp.remakeConstraints { (make) in
-            make.top.equalTo(titleLabel.snp.bottom).offset(6)
+            make.top.equalTo(titleLabel.snp.bottom).offset(8)
             make.left.right.equalTo(titleLabel)
             if !subtitleLabel.isEmpty {
                 make.bottom.lessThanOrEqualTo(-15)
@@ -104,45 +107,49 @@ public final class HUDViewController: CKViewController {
     
 }
 
-public extension UIApplication {
+public extension HUDViewController {
     
-    public static let hud = HUDViewController()
+    public static let shared = HUDViewController()
     private static var hudRefCount: UInt = 0
     
-    public static func hudShow(title: String? = nil, subtitle: String? = nil, keepValues: Bool = false) {
+    public static func show(title: String? = nil, subtitle: String? = nil, keepValues: Bool = false) {
         DispatchQueue.main.async {
             hudRefCount += 1
             if keepValues {
-                hud.data = (title ?? hud.data.title, subtitle ?? hud.data.subtitle)
+                shared.data = (title ?? shared.data.title, subtitle ?? shared.data.subtitle)
             } else {
-                hud.data = (title, subtitle)
+                shared.data = (title, subtitle)
             }
-            if hud.view.superview == nil { // add only if not added yet
-                hud.view.alpha = 0
-                shared.keyWindow!.addSubview(hud.view)
-                hud.view.performLayout(animated: false)
+            if shared.view.superview == nil { // add only if not added yet
+                shared.view.alpha = 0
+                UIApplication.shared.keyWindow!.addSubview(shared.view)
+                shared.view.performLayout(animated: false)
                 UIView.animate(withDuration: 0.25) {
-                    self.hud.view.alpha = 1
+                    self.shared.view.alpha = 1
                 }
             }
         }
     }
     
-    public static func hudHide() {
+    public static func hide() {
         Dispatch.main.async {
             hudRefCount = (hudRefCount > 0) ? hudRefCount - 1 : 0
             if hudRefCount == 0 { // remove only there are no references remaining
                 UIView.animate(
                     withDuration: 0.25,
                     animations: {
-                        self.hud.view.alpha = 0
+                        self.shared.view.alpha = 0
                     },
                     completion: { _ in
-                        self.hud.view.removeFromSuperview()
+                        self.shared.view.removeFromSuperview()
                     }
                 )
             }
         }
+    }
+    
+    public func clear() {
+        data = (nil, nil)
     }
     
 }

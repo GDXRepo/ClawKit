@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		4C1B43EF2132CD7B00FC3C02 /* UIFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1B43CB2132CD7B00FC3C02 /* UIFactory.swift */; };
-		4C1B43F02132CD7B00FC3C02 /* FontManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1B43CC2132CD7B00FC3C02 /* FontManager.swift */; };
 		4C1B43F12132CD7B00FC3C02 /* PinService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1B43CE2132CD7B00FC3C02 /* PinService.swift */; };
 		4C1B43F22132CD7B00FC3C02 /* PinButtonCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1B43D02132CD7B00FC3C02 /* PinButtonCollectionCell.swift */; };
 		4C1B43F32132CD7B00FC3C02 /* PinButtonControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1B43D12132CD7B00FC3C02 /* PinButtonControl.swift */; };
@@ -40,6 +39,8 @@
 		4CA6ACD821331F0500799379 /* UIConfigurable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CA6ACD721331F0500799379 /* UIConfigurable.swift */; };
 		4CA6ACDC2133201600799379 /* CKView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CA6ACDB2133201600799379 /* CKView.swift */; };
 		4CC74F07213958B200BD5FBB /* UIViewController+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC74F06213958B200BD5FBB /* UIViewController+Ext.swift */; };
+		4CCBF018214BB2D400032D19 /* UIStackView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CCBF017214BB2D300032D19 /* UIStackView+Ext.swift */; };
+		4CCBF031214BBA9000032D19 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CCBF030214BBA8F00032D19 /* R.generated.swift */; };
 		4CD6EDBB212AEF5D00D4B1B7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CD6EDBA212AEF5D00D4B1B7 /* AppDelegate.swift */; };
 		4CD6EDBD212AEF5D00D4B1B7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CD6EDBC212AEF5D00D4B1B7 /* ViewController.swift */; };
 		4CD6EDC2212AEF5E00D4B1B7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4CD6EDC1212AEF5E00D4B1B7 /* Assets.xcassets */; };
@@ -52,7 +53,6 @@
 		1FC6592A6DA0563C4E189B11 /* Pods_Sample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Sample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		32B04CD2CA89C0AE8DA0F652 /* Pods-1.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-1.release.xcconfig"; path = "Pods/Target Support Files/Pods-1/Pods-1.release.xcconfig"; sourceTree = "<group>"; };
 		4C1B43CB2132CD7B00FC3C02 /* UIFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIFactory.swift; sourceTree = "<group>"; };
-		4C1B43CC2132CD7B00FC3C02 /* FontManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FontManager.swift; sourceTree = "<group>"; };
 		4C1B43CE2132CD7B00FC3C02 /* PinService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PinService.swift; sourceTree = "<group>"; };
 		4C1B43D02132CD7B00FC3C02 /* PinButtonCollectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PinButtonCollectionCell.swift; sourceTree = "<group>"; };
 		4C1B43D12132CD7B00FC3C02 /* PinButtonControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PinButtonControl.swift; sourceTree = "<group>"; };
@@ -84,6 +84,8 @@
 		4CA6ACD721331F0500799379 /* UIConfigurable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIConfigurable.swift; sourceTree = "<group>"; };
 		4CA6ACDB2133201600799379 /* CKView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CKView.swift; sourceTree = "<group>"; };
 		4CC74F06213958B200BD5FBB /* UIViewController+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Ext.swift"; sourceTree = "<group>"; };
+		4CCBF017214BB2D300032D19 /* UIStackView+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIStackView+Ext.swift"; sourceTree = "<group>"; };
+		4CCBF030214BBA8F00032D19 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = "<group>"; };
 		4CD6EDB7212AEF5D00D4B1B7 /* Sample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4CD6EDBA212AEF5D00D4B1B7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4CD6EDBC212AEF5D00D4B1B7 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -175,7 +177,6 @@
 			children = (
 				4C1B43D92132CD7B00FC3C02 /* Extensions */,
 				4C1B43E22132CD7B00FC3C02 /* Dispatch.swift */,
-				4C1B43CC2132CD7B00FC3C02 /* FontManager.swift */,
 				4CA6ACD521331E8700799379 /* Gradient.swift */,
 				4C1B43E02132CD7B00FC3C02 /* Keychain.swift */,
 				4C1B43E12132CD7B00FC3C02 /* Profiler.swift */,
@@ -194,6 +195,7 @@
 				4C1B43DE2132CD7B00FC3C02 /* String+Ext.swift */,
 				4C1B43DB2132CD7B00FC3C02 /* UIColor+Hex.swift */,
 				4C1B43DC2132CD7B00FC3C02 /* UILabel+Empty.swift */,
+				4CCBF017214BB2D300032D19 /* UIStackView+Ext.swift */,
 				4C1B43DF2132CD7B00FC3C02 /* UIView+Layout.swift */,
 				4CC74F06213958B200BD5FBB /* UIViewController+Ext.swift */,
 			);
@@ -246,6 +248,7 @@
 				4CD6EDC1212AEF5E00D4B1B7 /* Assets.xcassets */,
 				4CD6EDC3212AEF5E00D4B1B7 /* LaunchScreen.storyboard */,
 				4CD6EDC6212AEF5E00D4B1B7 /* Info.plist */,
+				4CCBF030214BBA8F00032D19 /* R.generated.swift */,
 			);
 			path = Sample;
 			sourceTree = "<group>";
@@ -282,6 +285,7 @@
 				4CD6EDB4212AEF5D00D4B1B7 /* Frameworks */,
 				4CD6EDB5212AEF5D00D4B1B7 /* Resources */,
 				75B23EFAEBFB964DA3AF8264 /* [CP] Embed Pods Frameworks */,
+				4CCBF02D214BB67600032D19 /* R.swift */,
 			);
 			buildRules = (
 			);
@@ -342,6 +346,20 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		4CCBF02D214BB67600032D19 /* R.swift */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = R.swift;
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"$PODS_ROOT/R.swift/rswift\" generate \"$SRCROOT/Sample\"";
+		};
 		75B23EFAEBFB964DA3AF8264 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -350,12 +368,14 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Sample/Pods-Sample-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/MarqueeLabel/MarqueeLabel.framework",
+				"${BUILT_PRODUCTS_DIR}/R.swift.Library/Rswift.framework",
 				"${BUILT_PRODUCTS_DIR}/SAMKeychain/SAMKeychain.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MarqueeLabel.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Rswift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SAMKeychain.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
 			);
@@ -414,8 +434,9 @@
 				4C1B43F82132CD7B00FC3C02 /* CKButton.swift in Sources */,
 				4C1B43FB2132CD7B00FC3C02 /* UIColor+Hex.swift in Sources */,
 				4C1B43F72132CD7B00FC3C02 /* HUDViewController.swift in Sources */,
-				4C1B43F02132CD7B00FC3C02 /* FontManager.swift in Sources */,
 				4C1B43FA2132CD7B00FC3C02 /* Date+Ext.swift in Sources */,
+				4CCBF018214BB2D400032D19 /* UIStackView+Ext.swift in Sources */,
+				4CCBF031214BBA9000032D19 /* R.generated.swift in Sources */,
 				4C1B43EF2132CD7B00FC3C02 /* UIFactory.swift in Sources */,
 				4C1B43FF2132CD7B00FC3C02 /* UIView+Layout.swift in Sources */,
 				4C1B43F32132CD7B00FC3C02 /* PinButtonControl.swift in Sources */,
@@ -559,7 +580,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = KM45QMN2QR;
 				INFOPLIST_FILE = "$(SRCROOT)/Sample/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.GDXRepo.Sample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -575,7 +599,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = KM45QMN2QR;
 				INFOPLIST_FILE = "$(SRCROOT)/Sample/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.GDXRepo.Sample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;

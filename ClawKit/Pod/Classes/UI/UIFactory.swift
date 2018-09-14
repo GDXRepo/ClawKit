@@ -24,7 +24,7 @@ public extension UIFactory {
     
     public class func button(superview: UIView?) -> CKButton {
         let button = CKButton()
-        button.titleLabel?.font = FontManager.font(size: 16)
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 16, weight: .medium)
         button.setTitleColor(.black, for: .normal)
         return button.added(to: superview) as! CKButton
     }
@@ -54,7 +54,7 @@ public extension UIFactory {
         case marquee
     }
     
-    public class func label(font: UIFont = FontManager.font(size: 15, weight: .light), textColor: UIColor = .black, textAlignment: NSTextAlignment = .center, wordWrap: LabelWordWrap = .full, superview: UIView?) -> UILabel {
+    public class func label(font: UIFont, textColor: UIColor = .black, textAlignment: NSTextAlignment = .center, wordWrap: LabelWordWrap = .full, superview: UIView?) -> UILabel {
         var label: UILabel!
         if wordWrap == .marquee {
             label = MarqueeLabel(frame: .zero, duration: 3, andFadeLength: 0)!

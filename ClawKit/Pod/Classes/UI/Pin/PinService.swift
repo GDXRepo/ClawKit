@@ -225,13 +225,13 @@ extension PinService {
         assert(pin != nil && pin!.count == digitsCount, "Invalid call.")
         let verificationHandler = { [unowned self] in
             if self.indeterminatedCheckingTime {
-                UIApplication.hudShow()
+                HUD.show()
             }
             self.verifyingQueue.async { // perform in the separated queue due to possibility of taking a long time
                 self.delegate.pinService(self, verify: self.pin!) { isValid in
                     DispatchQueue.main.async {
                         if self.indeterminatedCheckingTime {
-                            UIApplication.hudHide()
+                            HUD.hide()
                         }
                         if isValid {
                             self._handleVerifyingSuccess()
