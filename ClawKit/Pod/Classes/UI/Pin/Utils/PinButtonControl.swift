@@ -56,7 +56,8 @@ public class PinButtonControl: UIControl {
         _reset()
         // bindings
         addTarget(self, action: #selector(_touchDown), for: [.touchDown, .touchDragEnter])
-        addTarget(self, action: #selector(_touchUp), for: [.touchUpInside, .touchDragExit, .touchCancel])
+        addTarget(self, action: #selector(_touchUp), for: [.touchUpInside])
+        addTarget(self, action: #selector(_touchUpCancel), for: [.touchDragExit, .touchCancel])
     }
     
     public required init?(coder aDecoder: NSCoder) {
@@ -97,18 +98,18 @@ extension PinButtonControl {
     }
     
     @objc private func _touchUp() {
-        switch type {
-        case .empty:
+        _touchUpCancel()
+        onClick?(self) // then execute callback
+    }
+    
+    @objc private func _touchUpCancel() {
+        if case .empty = type {
             return
-        default:
-            break
         }
         animator = UIViewPropertyAnimator(duration: 0.5, curve: .easeOut) { [weak self] in
             self?.backgroundColor = self?.colorDefault
         }
         animator.startAnimation()
-        // callback
-        onClick?(self)
     }
     
     private func _reset() {

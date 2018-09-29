@@ -53,12 +53,11 @@ open class CKViewController: UIViewController, UIReloadable {
         super.viewWillAppear(animated)
         scrollView.isScrollEnabled = allowsScrolling
         hidesNavigationBar = false
-        // workaround: always call this manually
-        updateViewConstraints()
+        updateViewConstraints() // workaround: necessary to perform valid layout
     }
     
-    open override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+    open override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
         NotificationCenter.unsubscribe(self)
     }
     

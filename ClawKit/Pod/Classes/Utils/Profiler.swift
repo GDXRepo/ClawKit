@@ -10,7 +10,7 @@ import Foundation
 
 open class Profiler {
     
-    open let id: String
+    public let id: String
     open var elapsedSec: Double {
         let elapsedMTU = Double(mach_absolute_time() - startTime)
         if timebaseInfo.denom == 0 {

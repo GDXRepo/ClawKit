@@ -21,7 +21,7 @@ open class CKButton: UIButton {
             addTarget(self, action: #selector(_handleOnClick), for: .touchUpInside)
         }
     }
-    public var animated: Bool = true
+    public var isAnimated: Bool = true
     
     private var dimView: UIView!
     private var animator = UIViewPropertyAnimator()
@@ -59,7 +59,7 @@ extension CKButton {
         
     @objc private func _touchDown() {
         animator.stopAnimation(true)
-        dimView.alpha = animated ? 0.3 : 0 // this is the "alpha" parameter, not duration :)
+        dimView.alpha = isAnimated ? 0.3 : 0 // this is the "alpha" parameter, not duration :)
     }
     
     @objc private func _touchUp() {

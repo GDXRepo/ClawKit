@@ -109,6 +109,7 @@ public class PinViewController: UIViewController {
         headerLabel = UILabel(frame: .zero)
         headerLabel.textAlignment = .center
         headerLabel.font = appearance.headerFont
+        headerLabel.isHidden = true // hide, looks pretty bad on the iPhones without notch
         view.addSubview(headerLabel)
         
         closeButton = UIButton(type: .custom)
@@ -146,8 +147,8 @@ public class PinViewController: UIViewController {
         contentView.addSubview(collectionView)
         
         logoutButton = UIButton(type: .system)
-        logoutButton.titleLabel?.font = UIFont.systemFont(ofSize: 15, weight: .light)
-        logoutButton.setTitleColor(.white, for: .normal)
+        logoutButton.titleLabel?.font = UIFont.systemFont(ofSize: 15, weight: .medium)
+        logoutButton.setTitleColor(.gray, for: .normal)
         logoutButton.addTarget(self, action: #selector(_handleLogout), for: .touchUpInside)
         view.addSubview(logoutButton)
     }
@@ -188,7 +189,7 @@ public class PinViewController: UIViewController {
         }
         logoutButton.snp.updateConstraints { (make) in
             make.centerX.equalTo(view)
-            make.bottom.equalTo(view.safeAreaInsets)
+            make.bottom.equalTo(view.safeAreaInsets).offset(-8)
             make.width.equalTo(100)
         }
         super.updateViewConstraints()
@@ -202,9 +203,9 @@ public class PinViewController: UIViewController {
         case .verify(let supportsLogout):
             closeButton.isHidden = true
             logoutButton.isHidden = !supportsLogout
-        case .change:
+        case .change(let supportsLogout):
             closeButton.isHidden = false
-            logoutButton.isHidden = true
+            logoutButton.isHidden = !supportsLogout
         }
         promptLabel.textColor = appearance.promptColor
         promptLabel.text = prompt
@@ -314,18 +315,22 @@ extension PinViewController: UICollectionViewDataSource {
         let id = "CellId"
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: id, for: indexPath) as! PinButtonCollectionCell
         switch indexPath.item {
-        case 9:
-            var error: NSError?
-            if LAContext().canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &error) {
-                cell.type = PinService.shared.isAllowBiometrics ? .touchId : .empty
+        case 9: // TouchID
+            if case .verify(_) = PinService.shared.mode { // can be displayed only when verifying, not changing
+                var error: NSError?
+                if LAContext().canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &error) {
+                    cell.type = PinService.shared.isAllowBiometrics ? .touchId : .empty
+                } else {
+                    cell.type = .empty
+                }
             } else {
                 cell.type = .empty
             }
-        case 10:
+        case 10: // zero digit
             cell.type = .digit(value: 0)
-        case 11:
+        case 11: // erase button
             cell.type = .erase
-        default:
+        default: // other digits
             cell.type = .digit(value: UInt(indexPath.row + 1))
         }
         cell.onClick = { [weak self] type in

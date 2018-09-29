@@ -8,9 +8,9 @@
 
 import Foundation
 
-public protocol UIReloadable: UIConfigurable {
+@objc public protocol UIReloadable: UIConfigurable {
     
     /// Reloads data using current view's state.
-    func reloadData()
+    @objc func reloadData()
     
 }

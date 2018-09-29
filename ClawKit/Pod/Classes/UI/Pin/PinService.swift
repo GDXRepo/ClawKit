@@ -22,10 +22,7 @@ public protocol PinServiceDelegate {
     ///   - service: PIN service.
     ///   - pin: Passcode to check.
     ///   - onFinish: Verifying callback returning single parameter which indicates whether the passcode is valid.
-    func pinService(_ service: PinService, verify pin: String, onFinish: (Bool) -> ())
-    
-    /// Destroys the PIN and removes it from the secured app's storage.
-    func pinServiceDestroyPin(_ service: PinService)
+    func pinService(_ service: PinService, verify pin: String, onFinish: @escaping (Bool) -> ())
     
     /// Informs about successful PIN change.
     ///
@@ -44,13 +41,13 @@ public protocol PinServiceDelegate {
 final public class PinService {
     
     public enum PinMode: Equatable {
-        case change
+        case change(supportsLogout: Bool)
         case verify(supportsLogout: Bool)
     }
     
     private enum ChangeState {
         case old
-        case new(dontMatch: Bool)
+        case new(mismatch: Bool)
         case confirm(passcode: String)
     }
     
@@ -69,9 +66,9 @@ final public class PinService {
                 switch state {
                 case .old:
                     controller!.hint = "ClawKit.pin.change.hint.old".loc()
-                case .new(let dontMatch):
+                case .new(let mismatch):
                     controller!.hint = (
-                        dontMatch
+                        mismatch
                         ? "ClawKit.pin.change.hint.confirm.error".loc()
                         : "ClawKit.pin.change.hint.new".loc()
                     )
@@ -79,7 +76,7 @@ final public class PinService {
                     controller!.hint = "ClawKit.pin.change.hint.confirm".loc()
                 }
             } else {
-                controller!.header = nil
+                controller?.header = nil
             }
         }
     }
@@ -162,7 +159,7 @@ extension PinService {
         }
         if case .verify(_) = mode {
             assert(delegate.pinServicePinExists(PinService.shared), "Pin must be set before verifying.")
-            assert(retriesRemaining > 0, "The pin must already be destroyed in your app's storage due to exceeding retries limit. Please check the \"pinServiceDestroyPin()\" and \"pinServicePinExists()\" delegate methods for more information.")
+            assert(retriesRemaining > 0, "The pin must already be destroyed in your app's storage due to exceeding retries limit. Please check the \"pinServicePinExists()\" delegate methods for more information.")
         }
         self.mode = mode
         self.delegate = delegate
@@ -174,7 +171,13 @@ extension PinService {
         // reset pin to display dots
         pin = nil
         // change state
-        state = (mode == .change) ? .old : nil
+        if case .change(_) = mode {
+            if delegate.pinServicePinExists(self) {
+                state = .old
+            } else {
+                state = .new(mismatch: false)
+            }
+        }
         // display animated
         ctrl.view.isUserInteractionEnabled = false
         ctrl.view.alpha = 0
@@ -185,14 +188,19 @@ extension PinService {
         UIView.animate(withDuration: animated ? 0.25 : 0) { [unowned self] in
             ctrl.view.alpha = 1
             var error: NSError?
-            if self.isAllowBiometrics && LAContext().canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &error) {
-                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                    self._evaluateBiometrics()
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.25) { // wait a bit to display TouchID/FaceID
-                        ctrl.view.isUserInteractionEnabled = true
+            switch mode {
+            case .verify(supportsLogout: _):
+                if self.isAllowBiometrics && LAContext().canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &error) {
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                        self._evaluateBiometrics()
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.25) { // wait a bit to display TouchID/FaceID
+                            ctrl.view.isUserInteractionEnabled = true
+                        }
                     }
+                } else {
+                    ctrl.view.isUserInteractionEnabled = true
                 }
-            } else {
+            default:
                 ctrl.view.isUserInteractionEnabled = true
             }
         }
@@ -209,6 +217,7 @@ extension PinService {
         }) { [weak self] _ in
             ctrl.view.removeFromSuperview()
             self?.pin = nil // destroy pin
+            self?.state = nil // reset state
         }
     }
     
@@ -278,7 +287,7 @@ extension PinService {
             switch s {
             case .old:
                 controller?.animateSlide()
-                state = .new(dontMatch: false)
+                state = .new(mismatch: false)
             case .new(_):
                 controller?.animateSlide()
                 state = .confirm(passcode: pin!)
@@ -295,8 +304,7 @@ extension PinService {
                 self.retriesRemaining -= 1
             } else {
                 self.retriesRemaining = 0
-                self.delegate.pinServiceDestroyPin(self)
-                self.hide()
+                self.delegate.pinServiceDidRequestLogout(self)
             }
         }
     }
@@ -307,10 +315,11 @@ extension PinService {
             controller?.animateError()
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.35 ) { [weak self] in
                 self?.controller?.animateSlide()
-                self?.state = .new(dontMatch: true)
+                self?.state = .new(mismatch: true)
             }
         } else {
             controller?.dotsState = .valid
+            reset()
             // callback
             delegate.pinService(self, didChangePin: pin!)
             // hide self after a second
@@ -386,7 +395,7 @@ extension PinService: PinViewControllerDelegate {
         )
         let actionOK = UIAlertAction(title: "ClawKit.utils.ok".loc(), style: .default) { [unowned self] _ in
             self.delegate.pinServiceDidRequestLogout(self)
-            ctrl.view.removeFromSuperview()
+            ctrl.dismiss(animated: true, completion: nil)
         }
         let actionCancel = UIAlertAction(title: "ClawKit.utils.cancel".loc(), style: .cancel) { _ in
             ctrl.dismiss(animated: true, completion: nil)

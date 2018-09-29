@@ -8,7 +8,7 @@
 
 import Foundation
 
-public protocol UIConfigurable: class {
+@objc public protocol UIConfigurable: class {
     
     /// Performs initial view's state setup.
     func preload()

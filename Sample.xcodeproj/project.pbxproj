@@ -33,6 +33,8 @@
 		4C1B44082132CD7B00FC3C02 /* ClawKitAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4C1B43EA2132CD7B00FC3C02 /* ClawKitAssets.xcassets */; };
 		4C1B440B2132CD7B00FC3C02 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 4C1B43ED2132CD7B00FC3C02 /* .gitignore */; };
 		4C1B440C2132CD7B00FC3C02 /* ClawKit.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 4C1B43EE2132CD7B00FC3C02 /* ClawKit.podspec */; };
+		4C2D6633216002F6004095E2 /* CKTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C2D6631216002F6004095E2 /* CKTableCell.swift */; };
+		4C2D6634216002F6004095E2 /* CKCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C2D6632216002F6004095E2 /* CKCollectionCell.swift */; };
 		4C55665E213745CF00378E19 /* UIReloadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C55665D213745CF00378E19 /* UIReloadable.swift */; };
 		4CA6ACD421331E7C00799379 /* CKControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CA6ACD321331E7C00799379 /* CKControl.swift */; };
 		4CA6ACD621331E8700799379 /* Gradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CA6ACD521331E8700799379 /* Gradient.swift */; };
@@ -78,6 +80,8 @@
 		4C1B43EA2132CD7B00FC3C02 /* ClawKitAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = ClawKitAssets.xcassets; sourceTree = "<group>"; };
 		4C1B43ED2132CD7B00FC3C02 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		4C1B43EE2132CD7B00FC3C02 /* ClawKit.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ClawKit.podspec; sourceTree = "<group>"; };
+		4C2D6631216002F6004095E2 /* CKTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CKTableCell.swift; sourceTree = "<group>"; };
+		4C2D6632216002F6004095E2 /* CKCollectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CKCollectionCell.swift; sourceTree = "<group>"; };
 		4C55665D213745CF00378E19 /* UIReloadable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIReloadable.swift; sourceTree = "<group>"; };
 		4CA6ACD321331E7C00799379 /* CKControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CKControl.swift; sourceTree = "<group>"; };
 		4CA6ACD521331E8700799379 /* Gradient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Gradient.swift; sourceTree = "<group>"; };
@@ -143,9 +147,11 @@
 			children = (
 				4C1B43CD2132CD7B00FC3C02 /* Pin */,
 				4C1B43D62132CD7B00FC3C02 /* CKButton.swift */,
-				4C1B43D42132CD7B00FC3C02 /* CKViewController.swift */,
+				4C2D6632216002F6004095E2 /* CKCollectionCell.swift */,
 				4CA6ACD321331E7C00799379 /* CKControl.swift */,
+				4C2D6631216002F6004095E2 /* CKTableCell.swift */,
 				4CA6ACDB2133201600799379 /* CKView.swift */,
+				4C1B43D42132CD7B00FC3C02 /* CKViewController.swift */,
 				4C1B43D52132CD7B00FC3C02 /* HUDViewController.swift */,
 				4C1B43CB2132CD7B00FC3C02 /* UIFactory.swift */,
 			);
@@ -417,6 +423,7 @@
 				4C1B43F52132CD7B00FC3C02 /* PinAppearance.swift in Sources */,
 				4CD6EDBD212AEF5D00D4B1B7 /* ViewController.swift in Sources */,
 				4C1B43FD2132CD7B00FC3C02 /* NotificationCenter+Ext.swift in Sources */,
+				4C2D6633216002F6004095E2 /* CKTableCell.swift in Sources */,
 				4C1B43F22132CD7B00FC3C02 /* PinButtonCollectionCell.swift in Sources */,
 				4C1B43F62132CD7B00FC3C02 /* CKViewController.swift in Sources */,
 				4C1B44042132CD7B00FC3C02 /* Logger.swift in Sources */,
@@ -439,6 +446,7 @@
 				4CCBF031214BBA9000032D19 /* R.generated.swift in Sources */,
 				4C1B43EF2132CD7B00FC3C02 /* UIFactory.swift in Sources */,
 				4C1B43FF2132CD7B00FC3C02 /* UIView+Layout.swift in Sources */,
+				4C2D6634216002F6004095E2 /* CKCollectionCell.swift in Sources */,
 				4C1B43F32132CD7B00FC3C02 /* PinButtonControl.swift in Sources */,
 				4CA6ACD621331E8700799379 /* Gradient.swift in Sources */,
 			);
