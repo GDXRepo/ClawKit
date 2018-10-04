@@ -10,7 +10,7 @@ import UIKit
 
 public protocol PinAppearance {
     
-    var blurStyle: UIBlurEffectStyle { get set }
+    var blurStyle: UIBlurEffect.Style { get set }
     
     var headerColor: UIColor { get set }
     var promptColor: UIColor { get set }
@@ -30,7 +30,7 @@ public protocol PinAppearance {
 
 public final class PinDefaultAppearance: PinAppearance {
     
-    public var blurStyle: UIBlurEffectStyle = .dark
+    public var blurStyle: UIBlurEffect.Style = .dark
     
     public var headerColor: UIColor = .white
     

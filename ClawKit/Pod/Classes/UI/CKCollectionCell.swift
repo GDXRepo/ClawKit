@@ -1,9 +1,9 @@
 //
 //  CKCollectionCell.swift
-//  Worldcore
+//  ClawKit
 //
-//  Created by Георгий Малюков on 22.09.2018.
-//  Copyright © 2018 EUPSprovider s.r.o. All rights reserved.
+//  Created by Georgiy Malyukov on 22.09.2018.
+//  Copyright © 2018 Georgiy Malyukov. All rights reserved.
 //
 
 import UIKit

@@ -81,7 +81,7 @@ public extension UIFactory {
     
     public class func imageView(
         with imageNamed: String? = nil,
-        contentMode: UIViewContentMode = .scaleAspectFit,
+        contentMode: UIView.ContentMode = .scaleAspectFit,
         superview: UIView?
     ) -> UIImageView {
         let imageView = UIImageView(image: (imageNamed != nil) ? UIImage(named: imageNamed!) : nil)
@@ -91,7 +91,7 @@ public extension UIFactory {
     
     public class func imageView(
         with image: UIImage?,
-        contentMode: UIViewContentMode = .scaleAspectFit,
+        contentMode: UIView.ContentMode = .scaleAspectFit,
         superview: UIView?
     ) -> UIImageView {
         let imageView = UIImageView(image: image)
@@ -114,9 +114,9 @@ public extension UIFactory {
     }
     
     public class func tableView(
-        style: UITableViewStyle = .plain,
+        style: UITableView.Style = .plain,
         backgroundColor: UIColor = .white,
-        separatorStyle: UITableViewCellSeparatorStyle = .none,
+        separatorStyle: UITableViewCell.SeparatorStyle = .none,
         separatorColor: UIColor? = .lightGray,
         isScrollable: Bool = true,
         superview: UIView?
@@ -130,8 +130,8 @@ public extension UIFactory {
     }
     
     public class func stackView(
-        distribution: UIStackViewDistribution = .fillEqually,
-        axis: UILayoutConstraintAxis = .horizontal,
+        distribution: UIStackView.Distribution = .fillEqually,
+        axis: NSLayoutConstraint.Axis = .horizontal,
         cornerRadius: UInt = 0,
         superview: UIView?
     ) -> UIStackView {

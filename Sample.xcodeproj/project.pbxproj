@@ -22,7 +22,6 @@
 		4C1B43FC2132CD7B00FC3C02 /* UILabel+Empty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1B43DC2132CD7B00FC3C02 /* UILabel+Empty.swift */; };
 		4C1B43FD2132CD7B00FC3C02 /* NotificationCenter+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1B43DD2132CD7B00FC3C02 /* NotificationCenter+Ext.swift */; };
 		4C1B43FE2132CD7B00FC3C02 /* String+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1B43DE2132CD7B00FC3C02 /* String+Ext.swift */; };
-		4C1B43FF2132CD7B00FC3C02 /* UIView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1B43DF2132CD7B00FC3C02 /* UIView+Ext.swift */; };
 		4C1B44002132CD7B00FC3C02 /* Keychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1B43E02132CD7B00FC3C02 /* Keychain.swift */; };
 		4C1B44012132CD7B00FC3C02 /* Profiler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1B43E12132CD7B00FC3C02 /* Profiler.swift */; };
 		4C1B44022132CD7B00FC3C02 /* Dispatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1B43E22132CD7B00FC3C02 /* Dispatch.swift */; };
@@ -36,6 +35,7 @@
 		4C2D6633216002F6004095E2 /* CKTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C2D6631216002F6004095E2 /* CKTableCell.swift */; };
 		4C2D6634216002F6004095E2 /* CKCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C2D6632216002F6004095E2 /* CKCollectionCell.swift */; };
 		4C55665E213745CF00378E19 /* UIReloadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C55665D213745CF00378E19 /* UIReloadable.swift */; };
+		4C8575552166DC4300000EB4 /* UIView+Layout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C8575542166DC4300000EB4 /* UIView+Layout.swift */; };
 		4CA6ACD421331E7C00799379 /* CKControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CA6ACD321331E7C00799379 /* CKControl.swift */; };
 		4CA6ACD621331E8700799379 /* Gradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CA6ACD521331E8700799379 /* Gradient.swift */; };
 		4CA6ACD821331F0500799379 /* UIConfigurable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CA6ACD721331F0500799379 /* UIConfigurable.swift */; };
@@ -69,7 +69,6 @@
 		4C1B43DC2132CD7B00FC3C02 /* UILabel+Empty.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UILabel+Empty.swift"; sourceTree = "<group>"; };
 		4C1B43DD2132CD7B00FC3C02 /* NotificationCenter+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NotificationCenter+Ext.swift"; sourceTree = "<group>"; };
 		4C1B43DE2132CD7B00FC3C02 /* String+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Ext.swift"; sourceTree = "<group>"; };
-		4C1B43DF2132CD7B00FC3C02 /* UIView+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Ext.swift"; sourceTree = "<group>"; };
 		4C1B43E02132CD7B00FC3C02 /* Keychain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Keychain.swift; sourceTree = "<group>"; };
 		4C1B43E12132CD7B00FC3C02 /* Profiler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Profiler.swift; sourceTree = "<group>"; };
 		4C1B43E22132CD7B00FC3C02 /* Dispatch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dispatch.swift; sourceTree = "<group>"; };
@@ -83,6 +82,7 @@
 		4C2D6631216002F6004095E2 /* CKTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CKTableCell.swift; sourceTree = "<group>"; };
 		4C2D6632216002F6004095E2 /* CKCollectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CKCollectionCell.swift; sourceTree = "<group>"; };
 		4C55665D213745CF00378E19 /* UIReloadable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIReloadable.swift; sourceTree = "<group>"; };
+		4C8575542166DC4300000EB4 /* UIView+Layout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Layout.swift"; sourceTree = "<group>"; };
 		4CA6ACD321331E7C00799379 /* CKControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CKControl.swift; sourceTree = "<group>"; };
 		4CA6ACD521331E8700799379 /* Gradient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Gradient.swift; sourceTree = "<group>"; };
 		4CA6ACD721331F0500799379 /* UIConfigurable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIConfigurable.swift; sourceTree = "<group>"; };
@@ -202,7 +202,7 @@
 				4C1B43DB2132CD7B00FC3C02 /* UIColor+Hex.swift */,
 				4C1B43DC2132CD7B00FC3C02 /* UILabel+Empty.swift */,
 				4CCBF017214BB2D300032D19 /* UIStackView+Ext.swift */,
-				4C1B43DF2132CD7B00FC3C02 /* UIView+Ext.swift */,
+				4C8575542166DC4300000EB4 /* UIView+Layout.swift */,
 				4CC74F06213958B200BD5FBB /* UIViewController+Ext.swift */,
 			);
 			path = Extensions;
@@ -437,6 +437,7 @@
 				4C1B44012132CD7B00FC3C02 /* Profiler.swift in Sources */,
 				4C1B44002132CD7B00FC3C02 /* Keychain.swift in Sources */,
 				4C1B43F12132CD7B00FC3C02 /* PinService.swift in Sources */,
+				4C8575552166DC4300000EB4 /* UIView+Layout.swift in Sources */,
 				4C1B43FE2132CD7B00FC3C02 /* String+Ext.swift in Sources */,
 				4C1B43F82132CD7B00FC3C02 /* CKButton.swift in Sources */,
 				4C1B43FB2132CD7B00FC3C02 /* UIColor+Hex.swift in Sources */,
@@ -445,7 +446,6 @@
 				4CCBF018214BB2D400032D19 /* UIStackView+Ext.swift in Sources */,
 				4CCBF031214BBA9000032D19 /* R.generated.swift in Sources */,
 				4C1B43EF2132CD7B00FC3C02 /* UIFactory.swift in Sources */,
-				4C1B43FF2132CD7B00FC3C02 /* UIView+Ext.swift in Sources */,
 				4C2D6634216002F6004095E2 /* CKCollectionCell.swift in Sources */,
 				4C1B43F32132CD7B00FC3C02 /* PinButtonControl.swift in Sources */,
 				4CA6ACD621331E8700799379 /* Gradient.swift in Sources */,
@@ -523,6 +523,7 @@
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.2;
 			};
 			name = Debug;
 		};
@@ -576,6 +577,7 @@
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 4.2;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -594,7 +596,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.GDXRepo.Sample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -613,7 +615,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.GDXRepo.Sample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

@@ -1,9 +1,9 @@
 //
 //  UIStackView+Ext.swift
-//  Worldcore
+//  ClawKit
 //
-//  Created by Георгий Малюков on 27.08.2018.
-//  Copyright © 2018 EUPSprovider s.r.o. All rights reserved.
+//  Created by Georgiy Malyukov on 27.08.2018.
+//  Copyright © 2018 Georgiy Malyukov. All rights reserved.
 //
 
 import Foundation

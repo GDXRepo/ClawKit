@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = "ClawKit"
-  s.version          = "0.0.25"
+  s.version          = "0.0.26"
   s.summary          = "Useful classes for MVVM/MVP/MVC/SOA-based projects."
   s.homepage         = "https://github.com/GDXRepo/ClawKit"
   s.license          = { :type => "MIT", :file => "LICENSE" }
@@ -19,6 +19,6 @@ Pod::Spec.new do |s|
   s.dependency 'SAMKeychain'
   s.dependency 'IQKeyboardManager'
   s.dependency 'MarqueeLabel'
-  s.dependency 'R.swift'
+  s.dependency 'R.swift', '>= 5.0.0.alpha.1'
   s.dependency 'TableKit'
 end

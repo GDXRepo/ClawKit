@@ -2,7 +2,7 @@
 //  UIViewController+Ext.swift
 //  Sample
 //
-//  Created by Георгий Малюков on 31.08.2018.
+//  Created by Georgiy Malyukov on 31.08.2018.
 //  Copyright © 2018 GDXRepo. All rights reserved.
 //
 
@@ -12,43 +12,43 @@ public typealias VoidBlock = () -> ()
 
 extension UIViewController {
     
-    public func addChild(controller: UIViewController, onContainer view: UIView, animation: (duration: TimeInterval, options: UIViewAnimationOptions, animations: VoidBlock)? = nil) {
+    public func addChild(controller: UIViewController, onContainer view: UIView, animation: (duration: TimeInterval, options: UIView.AnimationOptions, animations: VoidBlock)? = nil) {
         if let anim = animation {
-            addChildViewController(controller)
+            addChild(controller)
             controller.beginAppearanceTransition(true, animated: true)
             view.addSubview(controller.view)
             UIView.transition(with: view, duration: anim.duration, options: anim.options, animations: {
                 anim.animations()
             }) { _ in
                 controller.endAppearanceTransition()
-                controller.didMove(toParentViewController: self)
+                controller.didMove(toParent: self)
             }
         } else {
-            addChildViewController(controller)
+            addChild(controller)
             view.addSubview(controller.view)
-            controller.didMove(toParentViewController: self)
+            controller.didMove(toParent: self)
         }
     }
     
-    public func removeChild(controller: UIViewController, animation: (duration: TimeInterval, options: UIViewAnimationOptions, animations: VoidBlock)? = nil) {
+    public func removeChild(controller: UIViewController, animation: (duration: TimeInterval, options: UIView.AnimationOptions, animations: VoidBlock)? = nil) {
         if let anim = animation {
-            controller.willMove(toParentViewController: nil)
+            controller.willMove(toParent: nil)
             controller.beginAppearanceTransition(false, animated: true)
             UIView.transition(with: view, duration: anim.duration, options: anim.options, animations: {
                 controller.view.removeFromSuperview()
                 anim.animations()
             }) { _ in
                 controller.endAppearanceTransition()
-                controller.removeFromParentViewController()
+                controller.removeFromParent()
             }
         } else {
-            controller.willMove(toParentViewController: nil)
+            controller.willMove(toParent: nil)
             controller.view.removeFromSuperview()
-            controller.removeFromParentViewController()
+            controller.removeFromParent()
         }
     }
     
-    public func removeFromParent(animation: (duration: TimeInterval, options: UIViewAnimationOptions, animations: VoidBlock)? = nil) {
+    public func removeFromParent(animation: (duration: TimeInterval, options: UIView.AnimationOptions, animations: VoidBlock)? = nil) {
         removeChild(controller: self, animation: animation)
     }
     

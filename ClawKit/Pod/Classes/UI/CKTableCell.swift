@@ -1,16 +1,16 @@
 //
 //  CKTableCell.swift
-//  Worldcore
+//  ClawKit
 //
-//  Created by Георгий Малюков on 18.09.2018.
-//  Copyright © 2018 EUPSprovider s.r.o. All rights reserved.
+//  Created by Georgiy Malyukov on 18.09.2018.
+//  Copyright © 2018 Georgiy Malyukov. All rights reserved.
 //
 
 import UIKit
 
 open class CKTableCell: UITableViewCell {
     
-    public override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+    public override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         make()
         bind()

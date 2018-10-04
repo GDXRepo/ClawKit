@@ -145,10 +145,15 @@ final public class PinService {
     }
     public var isAllowBiometrics: Bool {
         get {
+            var error: NSError?
+            let isHardwareSupported = LAContext().canEvaluatePolicy(
+                .deviceOwnerAuthenticationWithBiometrics,
+                error: &error
+            )
             if let keychainValue = SAMKeychain.password(forService: "isAllowBiometrics", account: kAccount) {
-                return Bool(keychainValue)!
+                return Bool(keychainValue)! && isHardwareSupported
             }
-            return true
+            return isHardwareSupported
         }
         set {
             assert(controller == nil, "Unable to change value while Pin controller is shown.")
@@ -211,14 +216,13 @@ extension PinService {
         ctrl.view.frame = UIScreen.main.bounds
         ctrl.updateViewConstraints()
         ctrl.viewWillAppear(true) // to perform UI customization
-        UIApplication.shared.keyWindow!.addSubview(controller!.view)
+        UIApplication.shared.keyWindow!.addSubview(ctrl.view)
         UIView.animate(withDuration: animated ? 0.25 : 0) { [unowned self] in
             ctrl.view.alpha = 1
             NotificationCenter.post(PinService.didShowNotification)
-            var error: NSError?
             switch mode {
             case .verify(supportsLogout: _):
-                if self.isAllowBiometrics && LAContext().canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &error) {
+                if self.isAllowBiometrics {
                     DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
                         self._evaluateBiometrics()
                         DispatchQueue.main.asyncAfter(deadline: .now() + 0.25) { // wait a bit to display TouchID/FaceID
@@ -253,6 +257,14 @@ extension PinService {
     /// Resets retries remaining to maximum available value.
     public func reset() {
         retriesRemaining = maxRetryCount
+    }
+    
+    public func handleAppDidBecomeActive() {
+        if case .verify(_) = mode, controller != nil {
+            if isAllowBiometrics {
+                self._evaluateBiometrics()
+            }
+        }
     }
     
 }
@@ -375,7 +387,10 @@ extension PinService {
     
     private func _evaluateBiometrics() {
         pin = nil // reset pin to remove filled dots if they are exist
-        LAContext().evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: "ClawKit.pin.biometrics".loc()) { (result, error) in
+        LAContext().evaluatePolicy(
+            .deviceOwnerAuthenticationWithBiometrics,
+            localizedReason: "ClawKit.pin.biometrics".loc()
+        ) { (result, error) in
             DispatchQueue.main.async { [unowned self] in // important for Face ID
                 if error == nil {
                     self.pin = String(repeating: "0", count: self.digitsCount)

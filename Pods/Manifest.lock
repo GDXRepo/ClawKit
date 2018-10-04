@@ -2,15 +2,15 @@ PODS:
   - MarqueeLabel (3.2.0):
     - MarqueeLabel/ObjC (= 3.2.0)
   - MarqueeLabel/ObjC (3.2.0)
-  - R.swift (4.0.0):
-    - R.swift.Library (~> 4.0.0)
-  - R.swift.Library (4.0.0)
+  - R.swift (5.0.0.alpha.2):
+    - R.swift.Library (~> 5.0.0.alpha.2)
+  - R.swift.Library (5.0.0.alpha.2)
   - SAMKeychain (1.5.3)
   - SnapKit (4.0.1)
 
 DEPENDENCIES:
   - MarqueeLabel
-  - R.swift
+  - R.swift (>= 5.0.0.alpha.1)
   - SAMKeychain
   - SnapKit
 
@@ -24,11 +24,11 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   MarqueeLabel: 440a502b91a9179bd98f9fff00ba1150650a1c0e
-  R.swift: d6a5ec2f55a8441dc0ed9f1f8b37d7d11ae85c66
-  R.swift.Library: c3af34921024333546e23b70e70d0b4e0cffca75
+  R.swift: 31fa1bd537fa81307815cc622122f33331f32174
+  R.swift.Library: 3c21b823839bf5a6769dc7f96cb44479dab51b1b
   SAMKeychain: 483e1c9f32984d50ca961e26818a534283b4cd5c
   SnapKit: 0de968a9fec17499afa29683b05d0c775b6d1c29
 
-PODFILE CHECKSUM: 4ec38c0daef7f3c4e41c27b74697481d04e3b6a2
+PODFILE CHECKSUM: e0146cb814099c8842890b1bb4369e2284a5d9a7
 
 COCOAPODS: 1.5.3
