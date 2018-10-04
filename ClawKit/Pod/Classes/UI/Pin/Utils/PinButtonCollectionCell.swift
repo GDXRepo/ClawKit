@@ -14,7 +14,8 @@ final class PinButtonCollectionCell: UICollectionViewCell {
     var type: PinButtonControl.ButtonType! {
         didSet {
             control?.removeFromSuperview()
-            control = PinButtonControl(type: type)
+            let appearance = PinService.shared.controller!.appearance
+            control = PinButtonControl(type: type, highlightBackgroundColor: appearance.highlightingColor)
             control!.onClick = { [weak self] control in
                 self?._handleClick(on: control)
             }

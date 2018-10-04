@@ -27,7 +27,7 @@ class ViewController: UIViewController {
 
 }
 
-extension ViewController: PinServiceDelegate {
+extension ViewController: PinServiceDelegate {    
     
     func pinServicePinExists(_ service: PinService) -> Bool {
         return true
@@ -37,16 +37,20 @@ extension ViewController: PinServiceDelegate {
         onFinish(pin == "111111")
     }
     
-    func pinServiceDestroyPin(_ service: PinService) {
+    func pinService(_ service: PinService, didChangePin newPin: String) {
         
     }
     
-    func pinService(_ service: PinService, didChangePin newPin: String) {
+    func pinService(_ service: PinService, didEnter passcode: String) {
         
     }
     
     func pinServiceDidRequestLogout(_ service: PinService) {
         PinService.shared.hide()
+    }
+    
+    func pinServiceDidCancel(_ service: PinService) {
+        
     }
     
 }

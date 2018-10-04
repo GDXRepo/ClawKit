@@ -11,8 +11,6 @@ import UIKit
 
 open class CKControl: UIControl, UIReloadable {
     
-    open var reloadsWhenMoved: Bool = true
-    
     public convenience init() {
         self.init(frame: .zero)
     }
@@ -31,12 +29,9 @@ open class CKControl: UIControl, UIReloadable {
         return nil
     }
     
-    open override func didMoveToSuperview() {
-        updateConstraintsIfNeeded()
-        super.didMoveToSuperview()
-        if reloadsWhenMoved {
-            reloadData()
-        }
+    open override func layoutSubviews() {
+        super.layoutSubviews()
+        reloadData()
     }
     
     // MARK: - UIReloadable

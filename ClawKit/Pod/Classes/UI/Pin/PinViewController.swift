@@ -29,17 +29,22 @@ public class PinViewController: UIViewController {
     }
     
     var delegate: PinViewControllerDelegate?
-    var header: String? {
+    private var isInteractible: Bool = true {
+        didSet {
+            view.isUserInteractionEnabled = isInteractible
+        }
+    }
+    public var header: String? {
         didSet {
             headerLabel.text = header
         }
     }
-    var prompt: String? = "ClawKit.pin.prompt".loc() {
+    public var prompt: String? = "ClawKit.pin.prompt".loc() {
         didSet {
             promptLabel.text = prompt
         }
     }
-    var hint: String? {
+    public var hint: String? {
         didSet {
             view.setNeedsUpdateConstraints()
             view.setNeedsLayout()
@@ -64,15 +69,18 @@ public class PinViewController: UIViewController {
         didSet {
             switch dotsState {
             case .default:
+                isInteractible = true
                 dotsLabel.textColor = appearance.dotsColor
             case .valid:
+                isInteractible = false
                 dotsLabel.textColor = appearance.utilityColors.valid
             case .invalid:
+                isInteractible = false
                 dotsLabel.textColor = appearance.utilityColors.invalid
             }
         }
     }
-    private let appearance: PinAppearance
+    let appearance: PinAppearance
     private let multiplier = UIScreen.main.bounds.width / 320
     private var contentView: UIView!
     private var headerLabel: UILabel!
@@ -155,7 +163,7 @@ public class PinViewController: UIViewController {
     
     override public func updateViewConstraints() {
         headerLabel.snp.updateConstraints { (make) in
-            make.top.equalTo(view.snp.topMargin).offset(8)
+            make.top.equalTo(view.safeAreaLayoutGuide).offset(8)
             make.centerX.equalTo(contentView)
         }
         closeButton.snp.updateConstraints { (make) in
@@ -189,7 +197,7 @@ public class PinViewController: UIViewController {
         }
         logoutButton.snp.updateConstraints { (make) in
             make.centerX.equalTo(view)
-            make.bottom.equalTo(view.safeAreaInsets).offset(-8)
+            make.bottom.equalTo(view.safeAreaLayoutGuide)
             make.width.equalTo(100)
         }
         super.updateViewConstraints()
@@ -200,6 +208,9 @@ public class PinViewController: UIViewController {
         headerLabel.textColor = appearance.headerColor
         headerLabel.text = header
         switch PinService.shared.mode {
+        case .get:
+            closeButton.isHidden = false
+            logoutButton.isHidden = true
         case .verify(let supportsLogout):
             closeButton.isHidden = true
             logoutButton.isHidden = !supportsLogout
@@ -252,7 +263,7 @@ extension PinViewController {
         if hint != nil {
             self.hint = hint
         }
-        view.isUserInteractionEnabled = false
+        isInteractible = false // deny touches
         dotsState = .invalid
         // shake animation (wait a bit before it, its necessary to take time for hint label layout)
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.02) { [unowned self] in
@@ -266,7 +277,7 @@ extension PinViewController {
             self.dotsLabel.layer.add(animation, forKey: nil)
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
                 self.dotsState = .default
-                self.view.isUserInteractionEnabled = true
+                self.isInteractible = true // allow touches
                 completion?()
             }
         }
@@ -276,7 +287,7 @@ extension PinViewController {
         if hint != nil {
             self.hint = hint
         }
-        view.isUserInteractionEnabled = false
+        isInteractible = false // deny touches
         let duration = 0.15
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.02) { [unowned self] in
             UIView.animate(
@@ -295,8 +306,8 @@ extension PinViewController {
                     options: .curveEaseOut,
                     animations: {
                         self.dotsLabel.center.x = self.view.center.x
-                }) { (finished) in
-                    self.view.isUserInteractionEnabled = true
+                }) { [unowned self] (finished) in
+                    self.isInteractible = true // allow touches
                     completion?()
                 }
             }

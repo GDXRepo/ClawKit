@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 import LocalAuthentication
+import SAMKeychain
 
 public protocol PinServiceDelegate {
     
@@ -31,16 +32,29 @@ public protocol PinServiceDelegate {
     ///   - newPin: New PIN that must be stored the secured app's storage.
     func pinService(_ service: PinService, didChangePin newPin: String)
     
+    /// Informs about passcode entered. Uses only with `get` service mode.
+    ///
+    /// - Parameters:
+    ///   - service: PIN service.
+    ///   - passcode: Entered passcode.
+    func pinService(_ service: PinService, didEnter passcode: String)
+    
     /// Called when user requests logging out. You must hide PIN screen manually after finishing the process. See `hide()` for details.
     ///
     /// - Parameter service: PIN service.
     func pinServiceDidRequestLogout(_ service: PinService)
+    
+    /// Called when user closes the PIN screen (when possible).
+    ///
+    /// - Parameter service: PIN service.
+    func pinServiceDidCancel(_ service: PinService)
     
 }
 
 final public class PinService {
     
     public enum PinMode: Equatable {
+        case get
         case change(supportsLogout: Bool)
         case verify(supportsLogout: Bool)
     }
@@ -52,6 +66,8 @@ final public class PinService {
     }
     
     public static let shared = PinService()
+    public static let didShowNotification = "PinViewControllerDidShow"
+    public static let didHideNotification = "PinViewControllerDidHide"
     public private(set) var delegate: PinServiceDelegate!
     public private(set) var controller: PinViewController?
     public private(set) var mode: PinMode = .verify(supportsLogout: true)
@@ -96,6 +112,11 @@ final public class PinService {
             reset() // reset retries remaining immediately
         }
     }
+    public var appearance: PinAppearance = PinDefaultAppearance() {
+        willSet {
+            assert(controller == nil, "Unable to change appearance while Pin controller is shown.")
+        }
+    }
     public private(set) var retriesRemaining: UInt {
         get {
             if let value = Keychain.get(kRetriesRemaining), let uint = UInt(value) {
@@ -122,9 +143,16 @@ final public class PinService {
             }
         }
     }
-    public var isAllowBiometrics = true {
-        willSet {
+    public var isAllowBiometrics: Bool {
+        get {
+            if let keychainValue = SAMKeychain.password(forService: "isAllowBiometrics", account: kAccount) {
+                return Bool(keychainValue)!
+            }
+            return true
+        }
+        set {
             assert(controller == nil, "Unable to change value while Pin controller is shown.")
+            SAMKeychain.setPassword(newValue.description, forService: "isAllowBiometrics", account: kAccount)
         }
     }
     public private(set) var pin: String? {
@@ -151,9 +179,8 @@ extension PinService {
     /// - Parameters:
     ///   - mode: Determines whether screen should be set up for verifying or changing passcode. Default is `.verify`.
     ///   - delegate: Delegate.
-    ///   - appearance: UI appearance settings. Default is `PinDefaultAppearance()`.
     ///   - animated: Animated flag. Default is `true`.
-    public func show(for mode: PinMode = .verify(supportsLogout: true), delegate: PinServiceDelegate, appearance: PinAppearance = PinDefaultAppearance(), animated: Bool = true) {
+    public func show(for mode: PinMode = .verify(supportsLogout: true), delegate: PinServiceDelegate, animated: Bool = true) {
         guard controller == nil else {
             return
         }
@@ -187,6 +214,7 @@ extension PinService {
         UIApplication.shared.keyWindow!.addSubview(controller!.view)
         UIView.animate(withDuration: animated ? 0.25 : 0) { [unowned self] in
             ctrl.view.alpha = 1
+            NotificationCenter.post(PinService.didShowNotification)
             var error: NSError?
             switch mode {
             case .verify(supportsLogout: _):
@@ -218,6 +246,7 @@ extension PinService {
             ctrl.view.removeFromSuperview()
             self?.pin = nil // destroy pin
             self?.state = nil // reset state
+            NotificationCenter.post(PinService.didHideNotification)
         }
     }
     
@@ -251,7 +280,10 @@ extension PinService {
                 }
             }
         }
-        if state != nil {
+        if self.mode == .get {
+            self._handlePasscodeGet() // just handle passcode and finish
+        }
+        else if state != nil {
             switch state! {
             case .old:
                 verificationHandler()
@@ -273,6 +305,11 @@ extension PinService {
         reset()
         // make green color
         switch mode {
+        case .get:
+            // just wait and hide
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) { [weak self] in
+                self?.hide()
+            }
         case .verify:
             controller?.dotsState = .valid
             // wait and hide
@@ -329,14 +366,20 @@ extension PinService {
         }
     }
     
+    private func _handlePasscodeGet() {
+        // callback
+        delegate.pinService(self, didEnter: pin!)
+        // hide immediately
+        hide()
+    }
+    
     private func _evaluateBiometrics() {
         pin = nil // reset pin to remove filled dots if they are exist
         LAContext().evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: "ClawKit.pin.biometrics".loc()) { (result, error) in
-            DispatchQueue.main.async { [weak self] in // important for Face ID
-//                self?.pin = "000000" // fill with something to display filled dots
+            DispatchQueue.main.async { [unowned self] in // important for Face ID
                 if error == nil {
-                    self?.pin = "000000"
-                    self?._handleVerifyingSuccess()
+                    self.pin = String(repeating: "0", count: self.digitsCount)
+                    self._handleVerifyingSuccess()
                 } //else {
                     // do not decrease retries remaining when coming from biometrics, this flow is under iOS control
 //                    self?._handleFailure()
@@ -385,6 +428,7 @@ extension PinService: PinViewControllerDelegate {
     
     public func pinControllerDidPressClose(_ controller: PinViewController) {
         hide()
+        delegate?.pinServiceDidCancel(self)
     }
     
     public func pinControllerDidPressLogout(_ controller: PinViewController) {

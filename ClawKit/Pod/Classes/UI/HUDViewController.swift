@@ -38,7 +38,6 @@ public final class HUDViewController: CKViewController {
     
     public override func viewDidLoad() {
         super.viewDidLoad()
-        
         backgroundView = UIFactory.view(color: .black, alpha: 0.2, superview: contentView)
         
         borderView = UIFactory.view(color: .black, cornerRadius: 4, superview: contentView)

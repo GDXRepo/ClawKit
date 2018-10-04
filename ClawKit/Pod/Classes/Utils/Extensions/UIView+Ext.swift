@@ -1,5 +1,5 @@
 //
-//  UIView+Layout.swift
+//  UIView+Ext.swift
 //  ClawKit
 //
 //  Created by Georgiy Malyukov on 09.08.2018.

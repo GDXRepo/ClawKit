@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = "ClawKit"
-  s.version          = "0.0.24"
+  s.version          = "0.0.25"
   s.summary          = "Useful classes for MVVM/MVP/MVC/SOA-based projects."
   s.homepage         = "https://github.com/GDXRepo/ClawKit"
   s.license          = { :type => "MIT", :file => "LICENSE" }
@@ -9,7 +9,7 @@ Pod::Spec.new do |s|
   s.social_media_url = 'https://vk.com/deadlineru'
 
   s.platform      = :ios, '11.4'
-  s.swift_version = '4.1'
+  s.swift_version = '4.2'
   s.requires_arc  = true
 
   s.resources = ['ClawKit/Pod/Assets/*.xcassets', 'ClawKit/Pod/Assets/*.strings']
@@ -20,4 +20,5 @@ Pod::Spec.new do |s|
   s.dependency 'IQKeyboardManager'
   s.dependency 'MarqueeLabel'
   s.dependency 'R.swift'
+  s.dependency 'TableKit'
 end

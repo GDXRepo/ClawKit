@@ -16,7 +16,7 @@ open class CKButton: UIButton {
             setTitle(text, for: .normal)
         }
     }
-    public var onClick: ((UIButton) -> ())? {
+    public var onClick: ((CKButton) -> ())? {
         didSet {
             addTarget(self, action: #selector(_handleOnClick), for: .touchUpInside)
         }
@@ -25,10 +25,6 @@ open class CKButton: UIButton {
     
     private var dimView: UIView!
     private var animator = UIViewPropertyAnimator()
-    
-    public convenience init() {
-        self.init(frame: .zero)
-    }
     
     public override init(frame: CGRect) {
         super.init(frame: frame)

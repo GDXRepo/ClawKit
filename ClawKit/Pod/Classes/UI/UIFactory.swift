@@ -54,7 +54,13 @@ public extension UIFactory {
         case marquee
     }
     
-    public class func label(font: UIFont, textColor: UIColor = .black, textAlignment: NSTextAlignment = .center, wordWrap: LabelWordWrap = .full, superview: UIView?) -> UILabel {
+    public class func label(
+        font: UIFont,
+        textColor: UIColor = .black,
+        textAlignment: NSTextAlignment = .center,
+        wordWrap: LabelWordWrap = .full,
+        superview: UIView?
+    ) -> UILabel {
         var label: UILabel!
         if wordWrap == .marquee {
             label = MarqueeLabel(frame: .zero, duration: 3, andFadeLength: 0)!
@@ -73,19 +79,32 @@ public extension UIFactory {
         return label.added(to: superview) as! UILabel
     }
     
-    public class func imageView(with imageNamed: String? = nil, contentMode: UIViewContentMode = .scaleAspectFit, superview: UIView?) -> UIImageView {
+    public class func imageView(
+        with imageNamed: String? = nil,
+        contentMode: UIViewContentMode = .scaleAspectFit,
+        superview: UIView?
+    ) -> UIImageView {
         let imageView = UIImageView(image: (imageNamed != nil) ? UIImage(named: imageNamed!) : nil)
         imageView.contentMode = contentMode
         return imageView.added(to: superview) as! UIImageView
     }
     
-    public class func imageView(with image: UIImage?, contentMode: UIViewContentMode = .scaleAspectFit, superview: UIView?) -> UIImageView {
+    public class func imageView(
+        with image: UIImage?,
+        contentMode: UIViewContentMode = .scaleAspectFit,
+        superview: UIView?
+    ) -> UIImageView {
         let imageView = UIImageView(image: image)
         imageView.contentMode = contentMode
         return imageView.added(to: superview) as! UIImageView
     }
     
-    public class func view(color: UIColor = .white, alpha: CGFloat = 1.0, cornerRadius: UInt = 0, superview: UIView?) -> UIView {
+    public class func view(
+        color: UIColor = .white,
+        alpha: CGFloat = 1.0,
+        cornerRadius: UInt = 0,
+        superview: UIView?
+    ) -> UIView {
         let view = UIView(frame: .zero)
         view.backgroundColor = color
         view.alpha = alpha
@@ -94,7 +113,28 @@ public extension UIFactory {
         return view.added(to: superview)
     }
     
-    public class func stackView(distribution: UIStackViewDistribution = .fillEqually, axis: UILayoutConstraintAxis = .horizontal, cornerRadius: UInt = 0, superview: UIView?) -> UIStackView {
+    public class func tableView(
+        style: UITableViewStyle = .plain,
+        backgroundColor: UIColor = .white,
+        separatorStyle: UITableViewCellSeparatorStyle = .none,
+        separatorColor: UIColor? = .lightGray,
+        isScrollable: Bool = true,
+        superview: UIView?
+    ) -> UITableView {
+        let table = UITableView(frame: .zero, style: style)
+        table.backgroundColor = backgroundColor
+        table.separatorStyle = .none
+        table.separatorColor = separatorColor
+        table.isScrollEnabled = isScrollable
+        return table.added(to: superview) as! UITableView
+    }
+    
+    public class func stackView(
+        distribution: UIStackViewDistribution = .fillEqually,
+        axis: UILayoutConstraintAxis = .horizontal,
+        cornerRadius: UInt = 0,
+        superview: UIView?
+    ) -> UIStackView {
         let view = UIStackView(frame: .zero)
         view.translatesAutoresizingMaskIntoConstraints = false
         view.layer.cornerRadius = CGFloat(cornerRadius)

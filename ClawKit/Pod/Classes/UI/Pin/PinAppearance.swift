@@ -10,20 +10,21 @@ import UIKit
 
 public protocol PinAppearance {
     
-    var blurStyle: UIBlurEffectStyle { get }
+    var blurStyle: UIBlurEffectStyle { get set }
     
-    var headerColor: UIColor { get }
-    var promptColor: UIColor { get }
-    var hintColor: UIColor { get }
-    var dotsColor: UIColor { get }
-    var utilityColors: (valid: UIColor, invalid: UIColor) { get }
+    var headerColor: UIColor { get set }
+    var promptColor: UIColor { get set }
+    var hintColor: UIColor { get set }
+    var dotsColor: UIColor { get set }
+    var highlightingColor: UIColor { get set }
+    var utilityColors: (valid: UIColor, invalid: UIColor) { get set }
     
-    var headerFont: UIFont { get }
-    var promptFont: UIFont { get }
-    var hintFont: UIFont { get }
-    var dotsFont: UIFont { get }
+    var headerFont: UIFont { get set }
+    var promptFont: UIFont { get set }
+    var hintFont: UIFont { get set }
+    var dotsFont: UIFont { get set }
     
-    var logoutTitle: String? { get }
+    var logoutTitle: String? { get set }
     
 }
 
@@ -38,6 +39,8 @@ public final class PinDefaultAppearance: PinAppearance {
     public var hintColor: UIColor = .white
     
     public var dotsColor: UIColor = .white
+    
+    public var highlightingColor: UIColor = .darkGray
     
     public var utilityColors: (valid: UIColor, invalid: UIColor) = (UIColor(hex: 0x00c4c2), UIColor(hex: 0xf44650))
     

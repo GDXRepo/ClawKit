@@ -11,10 +11,9 @@ import UIKit
 
 open class CKView: UIView, UIReloadable {
     
-    open var reloadsWhenMoved: Bool = true
-    
-    public convenience init() {
+    public convenience init(superview: UIView?) {
         self.init(frame: .zero)
+        superview?.addSubview(self)
     }
     
     public override init(frame: CGRect) {
@@ -31,12 +30,9 @@ open class CKView: UIView, UIReloadable {
         return nil
     }
     
-    open override func didMoveToSuperview() {
-        super.didMoveToSuperview()
-        updateConstraintsIfNeeded()
-        if reloadsWhenMoved {
-            reloadData()
-        }
+    open override func layoutSubviews() {
+        super.layoutSubviews()
+        reloadData()
     }
     
     // MARK: - UIReloadable

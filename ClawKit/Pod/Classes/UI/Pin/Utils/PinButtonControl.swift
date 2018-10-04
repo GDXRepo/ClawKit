@@ -41,7 +41,7 @@ public class PinButtonControl: UIControl {
         colorHighlighted = highlightBackgroundColor
         super.init(frame: .zero)
         // add border
-        layer.borderColor = UIColor.gray.cgColor
+        layer.borderColor = highlightBackgroundColor.cgColor
         // UI
         label = UILabel(frame: .zero)
         label.font = UIFont.systemFont(ofSize: 33)
@@ -113,20 +113,22 @@ extension PinButtonControl {
     }
     
     private func _reset() {
-        layer.borderWidth = 0
+        layer.borderWidth = 1
         label.text = nil
         imageView.image = nil
         // customize
         switch type {
         case .digit(let value):
             label.text = "\(value)"
-            layer.borderWidth = 1
+            layer.borderColor = colorHighlighted.cgColor
         case .touchId:
             imageView.image = UIImage(named: "button_touchId")
+            layer.borderColor = UIColor.gray.cgColor
         case .erase:
             imageView.image = UIImage(named: "button_erase")
+            layer.borderColor = UIColor.gray.cgColor
         case .empty:
-            break
+            layer.borderWidth = 0
         }
     }
     

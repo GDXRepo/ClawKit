@@ -22,7 +22,7 @@
 		4C1B43FC2132CD7B00FC3C02 /* UILabel+Empty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1B43DC2132CD7B00FC3C02 /* UILabel+Empty.swift */; };
 		4C1B43FD2132CD7B00FC3C02 /* NotificationCenter+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1B43DD2132CD7B00FC3C02 /* NotificationCenter+Ext.swift */; };
 		4C1B43FE2132CD7B00FC3C02 /* String+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1B43DE2132CD7B00FC3C02 /* String+Ext.swift */; };
-		4C1B43FF2132CD7B00FC3C02 /* UIView+Layout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1B43DF2132CD7B00FC3C02 /* UIView+Layout.swift */; };
+		4C1B43FF2132CD7B00FC3C02 /* UIView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1B43DF2132CD7B00FC3C02 /* UIView+Ext.swift */; };
 		4C1B44002132CD7B00FC3C02 /* Keychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1B43E02132CD7B00FC3C02 /* Keychain.swift */; };
 		4C1B44012132CD7B00FC3C02 /* Profiler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1B43E12132CD7B00FC3C02 /* Profiler.swift */; };
 		4C1B44022132CD7B00FC3C02 /* Dispatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1B43E22132CD7B00FC3C02 /* Dispatch.swift */; };
@@ -69,7 +69,7 @@
 		4C1B43DC2132CD7B00FC3C02 /* UILabel+Empty.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UILabel+Empty.swift"; sourceTree = "<group>"; };
 		4C1B43DD2132CD7B00FC3C02 /* NotificationCenter+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NotificationCenter+Ext.swift"; sourceTree = "<group>"; };
 		4C1B43DE2132CD7B00FC3C02 /* String+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Ext.swift"; sourceTree = "<group>"; };
-		4C1B43DF2132CD7B00FC3C02 /* UIView+Layout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Layout.swift"; sourceTree = "<group>"; };
+		4C1B43DF2132CD7B00FC3C02 /* UIView+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Ext.swift"; sourceTree = "<group>"; };
 		4C1B43E02132CD7B00FC3C02 /* Keychain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Keychain.swift; sourceTree = "<group>"; };
 		4C1B43E12132CD7B00FC3C02 /* Profiler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Profiler.swift; sourceTree = "<group>"; };
 		4C1B43E22132CD7B00FC3C02 /* Dispatch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dispatch.swift; sourceTree = "<group>"; };
@@ -202,7 +202,7 @@
 				4C1B43DB2132CD7B00FC3C02 /* UIColor+Hex.swift */,
 				4C1B43DC2132CD7B00FC3C02 /* UILabel+Empty.swift */,
 				4CCBF017214BB2D300032D19 /* UIStackView+Ext.swift */,
-				4C1B43DF2132CD7B00FC3C02 /* UIView+Layout.swift */,
+				4C1B43DF2132CD7B00FC3C02 /* UIView+Ext.swift */,
 				4CC74F06213958B200BD5FBB /* UIViewController+Ext.swift */,
 			);
 			path = Extensions;
@@ -445,7 +445,7 @@
 				4CCBF018214BB2D400032D19 /* UIStackView+Ext.swift in Sources */,
 				4CCBF031214BBA9000032D19 /* R.generated.swift in Sources */,
 				4C1B43EF2132CD7B00FC3C02 /* UIFactory.swift in Sources */,
-				4C1B43FF2132CD7B00FC3C02 /* UIView+Layout.swift in Sources */,
+				4C1B43FF2132CD7B00FC3C02 /* UIView+Ext.swift in Sources */,
 				4C2D6634216002F6004095E2 /* CKCollectionCell.swift in Sources */,
 				4C1B43F32132CD7B00FC3C02 /* PinButtonControl.swift in Sources */,
 				4CA6ACD621331E8700799379 /* Gradient.swift in Sources */,
