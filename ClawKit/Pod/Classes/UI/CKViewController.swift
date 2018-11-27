@@ -11,7 +11,7 @@ import UIKit
 
 open class CKViewController: UIViewController, UIReloadable {
     
-    public private(set) var contentView: UIView!
+    public private(set) var contextView: UIView!
     private var scrollView: UIScrollView!
     private lazy var tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(hideKeyboard))
     
@@ -40,8 +40,10 @@ open class CKViewController: UIViewController, UIReloadable {
         scrollView.showsVerticalScrollIndicator = false
         view.addSubview(scrollView)
         
-        contentView = UIFactory.view(color: .clear, superview: scrollView)
-        contentView.addGestureRecognizer(tapRecognizer) // hide keyboard on tapping the content view
+        tapRecognizer.cancelsTouchesInView = false // important
+        contextView = UIFactory.view(color: .clear, superview: scrollView)
+        contextView.addGestureRecognizer(tapRecognizer) // hide keyboard on tapping the content view
+        view.addGestureRecognizer(tapRecognizer) // also add this recognizer to the root view
         // setup UI
         preload()
         make()
@@ -63,12 +65,14 @@ open class CKViewController: UIViewController, UIReloadable {
     
     open override func updateViewConstraints() {
         scrollView.snp.updateConstraints { (make) in
-            make.edges.equalTo(0)
+            make.top.equalTo(view.safeAreaLayoutGuide)
+            make.left.right.equalTo(0)
+            make.bottom.equalTo(view.safeAreaLayoutGuide)
         }
-        contentView.snp.updateConstraints { (make) in
-            make.edges.equalTo(0)
+        contextView.snp.updateConstraints { (make) in
+            make.left.right.top.equalTo(0)
+            make.bottom.lessThanOrEqualTo(0)
             make.width.equalTo(scrollView) // fixed width means that only vertical on-demand scroll is enabled
-            make.height.greaterThanOrEqualTo(scrollView) // very important to prevent smaller height than screen size
         }
         super.updateViewConstraints()
     }
@@ -113,7 +117,9 @@ open class CKViewController: UIViewController, UIReloadable {
 extension CKViewController {
     
     @objc public func hideKeyboard() {
-        view.endEditing(true)
+        Dispatch.main.after(0.05) { [unowned self] in // prevents unfocusing subviews before potential processing
+            self.view.endEditing(true)
+        }
     }
     
     public func subscribe(selector: Selector, to notificationName: String) {

@@ -121,7 +121,7 @@ public class PinViewController: UIViewController {
         view.addSubview(headerLabel)
         
         closeButton = UIButton(type: .custom)
-        closeButton.setImage(UIImage(named: "close-button"), for: .normal)
+        closeButton.setImage(UIImage(named: "close-button")!, for: .normal)
         closeButton.addTarget(self, action: #selector(_handleClose), for: .touchUpInside)
         view.addSubview(closeButton)
         

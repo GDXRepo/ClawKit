@@ -97,11 +97,19 @@ final public class PinService {
         }
     }
     
+    // MARK: - Specials for Get PIN mode
+    
+    private var _passcodeDigitsCount: Int?
+    private var _passcodeDelegate: PinServiceDelegate!
+    private var _passcodeHint: String?
+    
     // MARK: - Customization
     
     public var digitsCount: Int = 6 {
         willSet {
             assert(newValue >= 4 && newValue <= 10, "Unsupported digits count.")
+            _passcodeDigitsCount = digitsCount
+            _passcodeHint = PinService.shared.controller?.hint
         }
     }
     public var maxRetryCount: UInt = 5 {
@@ -186,8 +194,20 @@ extension PinService {
     ///   - delegate: Delegate.
     ///   - animated: Animated flag. Default is `true`.
     public func show(for mode: PinMode = .verify(supportsLogout: true), delegate: PinServiceDelegate, animated: Bool = true) {
-        guard controller == nil else {
-            return
+        // process scenario when we have to display Verify PIN screen when the Get PIN mode is already active
+        if self.mode != .get {
+            _passcodeDigitsCount = nil
+            _passcodeHint = nil
+            _passcodeDelegate = nil
+        } else {
+            _passcodeDelegate = delegate
+        }
+        if controller != nil {
+            if self.mode == .get {
+                hide(animated: false)
+            } else {
+                return
+            }
         }
         if case .verify(_) = mode {
             assert(delegate.pinServicePinExists(PinService.shared), "Pin must be set before verifying.")
@@ -239,12 +259,12 @@ extension PinService {
     }
     
     /// Hides the PIN screen.
-    public func hide() {
+    public func hide(animated: Bool = true) {
         guard let ctrl = controller else {
             return
         }
         controller = nil // free immediately to prevent possible extra "hide()" calls
-        UIView.animate(withDuration: 0.25, animations: {
+        UIView.animate(withDuration: animated ? 0.25 : 0, animations: {
             ctrl.view.alpha = 0
         }) { [weak self] _ in
             ctrl.view.removeFromSuperview()
@@ -325,8 +345,21 @@ extension PinService {
         case .verify:
             controller?.dotsState = .valid
             // wait and hide
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) { [weak self] in
-                self?.hide()
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) { [unowned self] in
+                // if previous mode was "get passcode" then display it after successful PIN verifying
+                if let passcodeDigits = self._passcodeDigitsCount {
+                    let hint = self._passcodeHint
+                    self.hide(animated: false)
+                    self.digitsCount = passcodeDigits
+                    // show as ".get" with previously memorized parameters
+                    self.show(for: .get, delegate: self._passcodeDelegate, animated: true)
+                    self.controller!.hint = hint
+                    self._passcodeDigitsCount = nil
+                    self._passcodeHint = nil
+                    self._passcodeDelegate = nil
+                } else {
+                    self.hide()
+                }
             }
         case .change:
             guard let s = state else {
@@ -442,7 +475,6 @@ extension PinService: PinViewControllerDelegate {
     }
     
     public func pinControllerDidPressClose(_ controller: PinViewController) {
-        hide()
         delegate?.pinServiceDidCancel(self)
     }
     
