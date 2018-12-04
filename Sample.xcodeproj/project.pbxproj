@@ -25,9 +25,6 @@
 		4C1B44002132CD7B00FC3C02 /* Keychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1B43E02132CD7B00FC3C02 /* Keychain.swift */; };
 		4C1B44012132CD7B00FC3C02 /* Profiler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1B43E12132CD7B00FC3C02 /* Profiler.swift */; };
 		4C1B44022132CD7B00FC3C02 /* Dispatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1B43E22132CD7B00FC3C02 /* Dispatch.swift */; };
-		4C1B44032132CD7B00FC3C02 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1B43E42132CD7B00FC3C02 /* Log.swift */; };
-		4C1B44042132CD7B00FC3C02 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1B43E52132CD7B00FC3C02 /* Logger.swift */; };
-		4C1B44052132CD7B00FC3C02 /* LoggerMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1B43E62132CD7B00FC3C02 /* LoggerMessage.swift */; };
 		4C1B44072132CD7B00FC3C02 /* ClawKitLocalizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4C1B43E92132CD7B00FC3C02 /* ClawKitLocalizable.strings */; };
 		4C1B44082132CD7B00FC3C02 /* ClawKitAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4C1B43EA2132CD7B00FC3C02 /* ClawKitAssets.xcassets */; };
 		4C1B440B2132CD7B00FC3C02 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 4C1B43ED2132CD7B00FC3C02 /* .gitignore */; };
@@ -40,6 +37,8 @@
 		4CA6ACD621331E8700799379 /* Gradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CA6ACD521331E8700799379 /* Gradient.swift */; };
 		4CA6ACD821331F0500799379 /* UIConfigurable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CA6ACD721331F0500799379 /* UIConfigurable.swift */; };
 		4CA6ACDC2133201600799379 /* CKView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CA6ACDB2133201600799379 /* CKView.swift */; };
+		4CB5C89721B672B50008F0BC /* Cache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CB5C89621B672B50008F0BC /* Cache.swift */; };
+		4CB5C89921B6776C0008F0BC /* Shield.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CB5C89821B6776C0008F0BC /* Shield.swift */; };
 		4CC74F07213958B200BD5FBB /* UIViewController+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC74F06213958B200BD5FBB /* UIViewController+Ext.swift */; };
 		4CCBF018214BB2D400032D19 /* UIStackView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CCBF017214BB2D300032D19 /* UIStackView+Ext.swift */; };
 		4CCBF031214BBA9000032D19 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CCBF030214BBA8F00032D19 /* R.generated.swift */; };
@@ -72,9 +71,6 @@
 		4C1B43E02132CD7B00FC3C02 /* Keychain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Keychain.swift; sourceTree = "<group>"; };
 		4C1B43E12132CD7B00FC3C02 /* Profiler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Profiler.swift; sourceTree = "<group>"; };
 		4C1B43E22132CD7B00FC3C02 /* Dispatch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dispatch.swift; sourceTree = "<group>"; };
-		4C1B43E42132CD7B00FC3C02 /* Log.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
-		4C1B43E52132CD7B00FC3C02 /* Logger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
-		4C1B43E62132CD7B00FC3C02 /* LoggerMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoggerMessage.swift; sourceTree = "<group>"; };
 		4C1B43E92132CD7B00FC3C02 /* ClawKitLocalizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = ClawKitLocalizable.strings; sourceTree = "<group>"; };
 		4C1B43EA2132CD7B00FC3C02 /* ClawKitAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = ClawKitAssets.xcassets; sourceTree = "<group>"; };
 		4C1B43ED2132CD7B00FC3C02 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
@@ -87,6 +83,8 @@
 		4CA6ACD521331E8700799379 /* Gradient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Gradient.swift; sourceTree = "<group>"; };
 		4CA6ACD721331F0500799379 /* UIConfigurable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIConfigurable.swift; sourceTree = "<group>"; };
 		4CA6ACDB2133201600799379 /* CKView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CKView.swift; sourceTree = "<group>"; };
+		4CB5C89621B672B50008F0BC /* Cache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cache.swift; sourceTree = "<group>"; };
+		4CB5C89821B6776C0008F0BC /* Shield.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shield.swift; sourceTree = "<group>"; };
 		4CC74F06213958B200BD5FBB /* UIViewController+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Ext.swift"; sourceTree = "<group>"; };
 		4CCBF017214BB2D300032D19 /* UIStackView+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIStackView+Ext.swift"; sourceTree = "<group>"; };
 		4CCBF030214BBA8F00032D19 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = "<group>"; };
@@ -135,7 +133,7 @@
 		4C1B43C92132CD7B00FC3C02 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				4C1B43E32132CD7B00FC3C02 /* Log */,
+				4CB5C89521B672830008F0BC /* Security */,
 				4C1B43CA2132CD7B00FC3C02 /* UI */,
 				4C1B43D72132CD7B00FC3C02 /* Utils */,
 			);
@@ -184,7 +182,6 @@
 				4C1B43D92132CD7B00FC3C02 /* Extensions */,
 				4C1B43E22132CD7B00FC3C02 /* Dispatch.swift */,
 				4CA6ACD521331E8700799379 /* Gradient.swift */,
-				4C1B43E02132CD7B00FC3C02 /* Keychain.swift */,
 				4C1B43E12132CD7B00FC3C02 /* Profiler.swift */,
 				4C1B43D82132CD7B00FC3C02 /* TagsCollectionFlowLayout.swift */,
 				4CA6ACD721331F0500799379 /* UIConfigurable.swift */,
@@ -208,16 +205,6 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
-		4C1B43E32132CD7B00FC3C02 /* Log */ = {
-			isa = PBXGroup;
-			children = (
-				4C1B43E42132CD7B00FC3C02 /* Log.swift */,
-				4C1B43E52132CD7B00FC3C02 /* Logger.swift */,
-				4C1B43E62132CD7B00FC3C02 /* LoggerMessage.swift */,
-			);
-			path = Log;
-			sourceTree = "<group>";
-		};
 		4C1B43E72132CD7B00FC3C02 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
@@ -225,6 +212,16 @@
 				4C1B43E92132CD7B00FC3C02 /* ClawKitLocalizable.strings */,
 			);
 			path = Assets;
+			sourceTree = "<group>";
+		};
+		4CB5C89521B672830008F0BC /* Security */ = {
+			isa = PBXGroup;
+			children = (
+				4CB5C89621B672B50008F0BC /* Cache.swift */,
+				4C1B43E02132CD7B00FC3C02 /* Keychain.swift */,
+				4CB5C89821B6776C0008F0BC /* Shield.swift */,
+			);
+			path = Security;
 			sourceTree = "<group>";
 		};
 		4CD6EDAE212AEF5D00D4B1B7 = {
@@ -419,18 +416,16 @@
 				4CA6ACD421331E7C00799379 /* CKControl.swift in Sources */,
 				4CA6ACDC2133201600799379 /* CKView.swift in Sources */,
 				4CC74F07213958B200BD5FBB /* UIViewController+Ext.swift in Sources */,
-				4C1B44032132CD7B00FC3C02 /* Log.swift in Sources */,
+				4CB5C89921B6776C0008F0BC /* Shield.swift in Sources */,
 				4C1B43F52132CD7B00FC3C02 /* PinAppearance.swift in Sources */,
 				4CD6EDBD212AEF5D00D4B1B7 /* ViewController.swift in Sources */,
 				4C1B43FD2132CD7B00FC3C02 /* NotificationCenter+Ext.swift in Sources */,
 				4C2D6633216002F6004095E2 /* CKTableCell.swift in Sources */,
 				4C1B43F22132CD7B00FC3C02 /* PinButtonCollectionCell.swift in Sources */,
 				4C1B43F62132CD7B00FC3C02 /* CKViewController.swift in Sources */,
-				4C1B44042132CD7B00FC3C02 /* Logger.swift in Sources */,
 				4CD6EDBB212AEF5D00D4B1B7 /* AppDelegate.swift in Sources */,
 				4C1B44022132CD7B00FC3C02 /* Dispatch.swift in Sources */,
 				4C55665E213745CF00378E19 /* UIReloadable.swift in Sources */,
-				4C1B44052132CD7B00FC3C02 /* LoggerMessage.swift in Sources */,
 				4C1B43FC2132CD7B00FC3C02 /* UILabel+Empty.swift in Sources */,
 				4C1B43F92132CD7B00FC3C02 /* TagsCollectionFlowLayout.swift in Sources */,
 				4CA6ACD821331F0500799379 /* UIConfigurable.swift in Sources */,
@@ -448,6 +443,7 @@
 				4C1B43EF2132CD7B00FC3C02 /* UIFactory.swift in Sources */,
 				4C2D6634216002F6004095E2 /* CKCollectionCell.swift in Sources */,
 				4C1B43F32132CD7B00FC3C02 /* PinButtonControl.swift in Sources */,
+				4CB5C89721B672B50008F0BC /* Cache.swift in Sources */,
 				4CA6ACD621331E8700799379 /* Gradient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
