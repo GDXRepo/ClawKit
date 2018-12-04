@@ -52,7 +52,6 @@
 /* Begin PBXFileReference section */
 		01D45D0BF842B93245AB4B56 /* Pods_1.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_1.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1FC6592A6DA0563C4E189B11 /* Pods_Sample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Sample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		32B04CD2CA89C0AE8DA0F652 /* Pods-1.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-1.release.xcconfig"; path = "Pods/Target Support Files/Pods-1/Pods-1.release.xcconfig"; sourceTree = "<group>"; };
 		4C1B43CB2132CD7B00FC3C02 /* UIFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIFactory.swift; sourceTree = "<group>"; };
 		4C1B43CE2132CD7B00FC3C02 /* PinService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PinService.swift; sourceTree = "<group>"; };
 		4C1B43D02132CD7B00FC3C02 /* PinButtonCollectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PinButtonCollectionCell.swift; sourceTree = "<group>"; };
@@ -94,7 +93,6 @@
 		4CD6EDC1212AEF5E00D4B1B7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4CD6EDC4212AEF5E00D4B1B7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4CD6EDC6212AEF5E00D4B1B7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A09290A1E38CC9D5AE9FCE19 /* Pods-1.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-1.debug.xcconfig"; path = "Pods/Target Support Files/Pods-1/Pods-1.debug.xcconfig"; sourceTree = "<group>"; };
 		C851DC12A0BCB23953D83E3D /* Pods-Sample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sample.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Sample/Pods-Sample.debug.xcconfig"; sourceTree = "<group>"; };
 		DE22C7E12EB5AD1697511033 /* Pods-Sample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sample.release.xcconfig"; path = "Pods/Target Support Files/Pods-Sample/Pods-Sample.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -259,8 +257,6 @@
 		6F99B8BEC0511ED0BBC7A267 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				A09290A1E38CC9D5AE9FCE19 /* Pods-1.debug.xcconfig */,
-				32B04CD2CA89C0AE8DA0F652 /* Pods-1.release.xcconfig */,
 				C851DC12A0BCB23953D83E3D /* Pods-Sample.debug.xcconfig */,
 				DE22C7E12EB5AD1697511033 /* Pods-Sample.release.xcconfig */,
 			);
